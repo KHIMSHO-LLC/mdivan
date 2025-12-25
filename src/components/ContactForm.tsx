@@ -50,6 +50,7 @@ export const ContactForm = () => {
               />
               <input type="hidden" name="_captcha" value="false" />
               <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_next" value="https://mdivan.com" />
 
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="group">
