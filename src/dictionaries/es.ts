@@ -70,7 +70,10 @@ export default {
     title: "Conoce a los expertos detrás de tu éxito",
     members: {
       nia: { name: "Nia Tcholadze", role: "CEO & Founder" },
-      lile: { name: "Lile Gvenetadze", role: "Operations Manager" },
+      lile: {
+        name: "Lile Gvenetadze",
+        role: "Operations Manager & Co-founder",
+      },
       giorgi: { name: "Giorgi Khimshiashvili", role: "CTO" },
       sarah: { name: "Sarah Johnson", role: "Head of Strategy" },
     },
