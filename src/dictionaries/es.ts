@@ -69,10 +69,10 @@ export default {
     badge: "Nuestro Equipo",
     title: "Conoce a los expertos detrás de tu éxito",
     members: {
-      sarah: { name: "Sarah Johnson", role: "CEO y Fundadora" },
-      lile: { name: "Lile Gvenetadze", role: "Jefa de Estrategia" },
-      nia: { name: "Nia Tcholadze", role: "Consultora Principal" },
-      giorgi: { name: "Giorgi Khimshiashvili", role: "Socio Director" },
+      nia: { name: "Nia Tcholadze", role: "CEO & Founder" },
+      lile: { name: "Lile Gvenetadze", role: "Operations Manager" },
+      giorgi: { name: "Giorgi Khimshiashvili", role: "CTO" },
+      sarah: { name: "Sarah Johnson", role: "Head of Strategy" },
     },
   },
   comparison: {
