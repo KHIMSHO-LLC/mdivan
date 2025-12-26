@@ -1,93 +1,38 @@
 "use client";
 
-import { Star, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
+import { ArrowRight, Star } from "lucide-react";
 
-export const Hero = () => {
+export const Hero = ({ dict }: { dict: any }) => {
   return (
-    <section className="bg-[var(--primary)] text-white min-h-[90vh] flex items-center pt-20 px-4 md:px-6 relative overflow-hidden">
-      <div className="container mx-auto grid md:grid-cols-2 gap-12 items-center">
-        {/* Left Content */}
-        <div className="space-y-8 z-10">
+    <section className="pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden relative">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex items-center gap-2 text-sm font-medium opacity-90"
+            transition={{ duration: 0.6 }}
           >
-            <div className="flex text-yellow-400">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-4 h-4 fill-current" />
-              ))}
+            <h1 className="text-5xl md:text-7xl font-sans font-bold text-[var(--primary)] mb-8 tracking-tight leading-[1.1]">
+              {dict.hero.title}
+            </h1>
+            <p className="text-xl text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed">
+              {dict.hero.description}
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                href="#contact"
+                className="bg-[var(--primary)] text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-[#1a243e] transition-all hover:scale-105 shadow-xl hover:shadow-2xl flex items-center gap-2"
+              >
+                {dict.hero.cta}
+                <ArrowRight className="w-5 h-5" />
+              </Link>
             </div>
-            <span>Rated 4.9/5</span>
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-5xl md:text-7xl font-sans font-medium leading-tight"
-          >
-            Connecting you with <br />
-            <span className="italic">elite business talent</span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-lg md:text-xl text-white/80 max-w-lg font-light"
-          >
-            We specialize in recruiting professional Business Associates and
-            Executive Assistants. Find the reliable support your company
-            deserves.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4 items-start sm:items-center"
-          >
-            <Link
-              href="#contact"
-              className="group flex items-center gap-3 bg-white text-[var(--primary)] pl-6 pr-2 py-2 rounded-full font-medium transition-transform hover:scale-105"
-            >
-              Get in touch
-              <div className="bg-[var(--primary)] text-white p-2 rounded-full group-hover:bg-[var(--primary)]/90 transition-colors">
-                <ArrowRight className="w-4 h-4" />
-              </div>
-            </Link>
-            <Link
-              href="#services"
-              className="text-white hover:underline underline-offset-4"
-            >
-              Find Talent
-            </Link>
           </motion.div>
         </div>
-
-        {/* Right Image */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="relative h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl z-10"
-        >
-          {/* Placeholder for the image of the lady in suit */}
-          <div className="absolute inset-0 bg-neutral-200">
-            <img
-              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=2576&auto=format&fit=crop"
-              alt="Consultant"
-              className="object-cover w-full h-full hover:scale-105 transition-transform duration-700"
-            />
-          </div>
-        </motion.div>
       </div>
-
-      {/* Background decoration matching the rounded aesthetics if needed */}
     </section>
   );
 };

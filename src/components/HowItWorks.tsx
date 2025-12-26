@@ -2,26 +2,24 @@
 
 import { Search, Lightbulb, TrendingUp } from "lucide-react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
-export const HowItWorks = () => {
+export const HowItWorks = ({ dict }: { dict: any }) => {
   const steps = [
     {
       icon: Search,
-      title: "Discovery",
-      description:
-        "We understand your company culture and specific needs to define the perfect candidate profile.",
+      title: dict.howItWorks.steps.discovery.title,
+      description: dict.howItWorks.steps.discovery.description,
     },
     {
       icon: Lightbulb,
-      title: "Vetting & Matching",
-      description:
-        "Our rigorous screening process identifies the most qualified and reliable candidates for your role.",
+      title: dict.howItWorks.steps.vetting.title,
+      description: dict.howItWorks.steps.vetting.description,
     },
     {
       icon: TrendingUp,
-      title: "Placement & Success",
-      description:
-        "We facilitate interviews and seamless onboarding, ensuring a long-term, successful partnership.",
+      title: dict.howItWorks.steps.placement.title,
+      description: dict.howItWorks.steps.placement.description,
     },
   ];
 
@@ -37,11 +35,10 @@ export const HowItWorks = () => {
           >
             <span className="text-[var(--primary)] font-medium mb-4 flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]"></span>
-              How it works
+              {dict.howItWorks.badge}
             </span>
             <h2 className="text-4xl md:text-5xl font-sans text-[var(--primary)] mb-8">
-              A proven process for <br />
-              finding top talent
+              {dict.howItWorks.title}
             </h2>
             <div className="space-y-12">
               {steps.map((step, index) => (
@@ -78,10 +75,11 @@ export const HowItWorks = () => {
           >
             <div className="aspect-square rounded-full bg-[var(--primary)]/5 absolute -top-10 -right-10 w-[400px]"></div>
             <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl h-[600px]">
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop"
                 alt="Collaboration"
-                className="object-cover w-full h-full hover:scale-105 transition-transform duration-700"
+                fill
+                className="object-cover w-full h-full transition-transform duration-700 hover:scale-105"
               />
             </div>
           </motion.div>

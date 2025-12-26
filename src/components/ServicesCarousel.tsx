@@ -3,44 +3,41 @@
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
-const services = [
-  {
-    title: "Executive Assistants",
-    description:
-      "High-level support for C-suite executives, managing schedules, travel, and confidential communications with precision.",
-    image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=2576&auto=format&fit=crop",
-    featured: true,
-  },
-  {
-    title: "Business Associates",
-    description:
-      "Versatile professionals capable of handling operations, project coordination, and client relations to drive business efficiency.",
-    image:
-      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop",
-    featured: false,
-  },
-  {
-    title: "Personal Assistants",
-    description:
-      "Dedicated support for day-to-day management, ensuring organized and stress-free personal and professional lives.",
-    image:
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2671&auto=format&fit=crop",
-    featured: false,
-  },
-  {
-    title: "Office Managers",
-    description:
-      "Ensure smooth daily operations, facility management, and team coordination for a productive workplace environment.",
-    image:
-      "https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=2070&auto=format&fit=crop",
-    featured: false,
-  },
-];
-
-export const ServicesCarousel = () => {
+export const ServicesCarousel = ({ dict }: { dict: any }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  const services = [
+    {
+      title: dict.services.items.ea.title,
+      description: dict.services.items.ea.description,
+      image:
+        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=2576&auto=format&fit=crop",
+      featured: true,
+    },
+    {
+      title: dict.services.items.ba.title,
+      description: dict.services.items.ba.description,
+      image:
+        "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop",
+      featured: false,
+    },
+    {
+      title: dict.services.items.pa.title,
+      description: dict.services.items.pa.description,
+      image:
+        "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2671&auto=format&fit=crop",
+      featured: false,
+    },
+    {
+      title: dict.services.items.om.title,
+      description: dict.services.items.om.description,
+      image:
+        "https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=2070&auto=format&fit=crop",
+      featured: false,
+    },
+  ];
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
@@ -67,7 +64,7 @@ export const ServicesCarousel = () => {
           current.scrollBy({ left: 300, behavior: "smooth" });
         }
       }
-    }, 5000); // Auto-scroll every 5 seconds
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
@@ -84,11 +81,10 @@ export const ServicesCarousel = () => {
         >
           <span className="text-[var(--primary)] font-medium mb-4 flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]"></span>
-            Services
+            {dict.services.title}
           </span>
           <h2 className="text-4xl md:text-5xl font-sans text-[var(--primary)] max-w-2xl">
-            Reliable talent to drive your <br />
-            business forward
+            {dict.services.heading}
           </h2>
         </motion.div>
 
@@ -109,10 +105,11 @@ export const ServicesCarousel = () => {
                   service.featured ? "md:w-[600px]" : ""
                 }`}
               >
-                <img
+                <Image
                   src={service.image}
                   alt={service.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  fill
+                  className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
 
