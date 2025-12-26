@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://mdivan.com"),
   title: "MDIVAN - Elite Business Associate & Assistant Recruitment",
   description:
     "We connect top-tier companies with professional, reliable business associates and executive assistants. Specializing in highly qualified talent for your administrative needs.",
@@ -33,6 +34,12 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "MDIVAN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MDIVAN - Elite Business Associate & Assistant Recruitment",
+    description:
+      "Connect with professional, reliable business associates and executive assistants.",
   },
 };
 

@@ -146,10 +146,10 @@ export const ContactForm = () => {
                     Call us
                   </p>
                   <a
-                    href="tel:+1234567890"
+                    href="tel:+34694209020"
                     className="text-white font-medium hover:underline"
                   >
-                    +1 (555) 123-4567
+                    +34 694 209 020
                   </a>
                 </div>
               </div>
