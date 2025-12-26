@@ -19,10 +19,10 @@ const geistMono = Geist_Mono({
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ lang: Locale }>;
+  params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
   const { lang } = await params;
-  const dict = await getDictionary(lang);
+  const dict = await getDictionary(lang as Locale);
 
   return {
     metadataBase: new URL("https://mdivan.com"),
@@ -61,10 +61,10 @@ export default async function RootLayout({
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: Promise<{ lang: Locale }>;
+  params: Promise<{ lang: string }>;
 }>) {
   const { lang } = await params;
-  const dict = await getDictionary(lang);
+  const dict = await getDictionary(lang as Locale);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -97,9 +97,9 @@ export default async function RootLayout({
         />
       </head>
       <body className={`${inter.variable} ${geistMono.variable} antialiased`}>
-        <Header lang={lang} />
+        <Header lang={lang as Locale} />
         {children}
-        <Footer lang={lang} />
+        <Footer lang={lang as Locale} />
       </body>
     </html>
   );
