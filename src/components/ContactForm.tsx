@@ -2,8 +2,9 @@
 
 import { ArrowRight, Calendar, Mail, Phone, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
-export const ContactForm = () => {
+export const ContactForm = ({ dict }: { dict: any }) => {
   return (
     <section
       className="py-24 bg-[var(--primary)] relative overflow-hidden"
@@ -25,16 +26,12 @@ export const ContactForm = () => {
             <div className="mb-10">
               <span className="text-white/80 font-medium mb-4 flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-white"></span>
-                Contact us
+                {dict.contact.badge}
               </span>
               <h2 className="text-4xl md:text-5xl font-sans text-white mb-6">
-                Ready to find your <br />
-                perfect match?
+                {dict.contact.title}
               </h2>
-              <p className="text-white/70 max-w-md">
-                Whether you're hiring top talent or looking for your next career
-                move, we're here to help.
-              </p>
+              <p className="text-white/70 max-w-md">{dict.contact.subtitle}</p>
             </div>
 
             <form
@@ -58,7 +55,7 @@ export const ContactForm = () => {
                     type="text"
                     name="name"
                     required
-                    placeholder="Full Name"
+                    placeholder={dict.contact.form.name}
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 text-white placeholder:text-white/40 focus:outline-none focus:border-white/50 focus:bg-white/10 transition-all"
                   />
                 </div>
@@ -67,7 +64,7 @@ export const ContactForm = () => {
                     type="email"
                     name="email"
                     required
-                    placeholder="Email Address"
+                    placeholder={dict.contact.form.email}
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 text-white placeholder:text-white/40 focus:outline-none focus:border-white/50 focus:bg-white/10 transition-all"
                   />
                 </div>
@@ -78,7 +75,7 @@ export const ContactForm = () => {
                   <input
                     type="text"
                     name="date"
-                    placeholder="Preferred Date (Optional)"
+                    placeholder={dict.contact.form.date}
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 text-white placeholder:text-white/40 focus:outline-none focus:border-white/50 focus:bg-white/10 transition-all"
                   />
                   <Calendar className="absolute right-4 top-1/2 -translate-y-1/2 text-white/40 w-5 h-5 group-focus-within:text-white transition-colors" />
@@ -92,13 +89,13 @@ export const ContactForm = () => {
                       value=""
                       className="bg-[var(--primary)] text-gray-300"
                     >
-                      I am looking for...
+                      {dict.contact.form.lookingFor}
                     </option>
                     <option value="hiring" className="bg-[var(--primary)]">
-                      Staff (Hiring)
+                      {dict.contact.form.hiringOption}
                     </option>
                     <option value="job" className="bg-[var(--primary)]">
-                      Job (Candidate)
+                      {dict.contact.form.jobOption}
                     </option>
                   </select>
                 </div>
@@ -108,12 +105,12 @@ export const ContactForm = () => {
                 name="message"
                 required
                 rows={5}
-                placeholder="Tell us about your needs..."
+                placeholder={dict.contact.form.message}
                 className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 text-white placeholder:text-white/40 focus:outline-none focus:border-white/50 focus:bg-white/10 transition-all resize-none"
               ></textarea>
 
               <button className="group w-full md:w-auto flex items-center justify-center gap-3 bg-white text-[var(--primary)] px-8 py-4 rounded-full font-bold text-lg transition-all hover:bg-neutral-100 hover:scale-[1.02] shadow-xl hover:shadow-2xl">
-                Send Message
+                {dict.contact.submit}
                 <div className="bg-[var(--primary)] text-white rounded-full p-1 group-hover:rotate-45 transition-transform duration-300">
                   <ArrowRight className="w-4 h-4" />
                 </div>
@@ -127,7 +124,7 @@ export const ContactForm = () => {
                 </div>
                 <div>
                   <p className="text-white/50 text-xs uppercase tracking-wider">
-                    Email us at
+                    {dict.contact.emailUs}
                   </p>
                   <a
                     href="mailto:hello@mdivan.com"
@@ -143,7 +140,7 @@ export const ContactForm = () => {
                 </div>
                 <div>
                   <p className="text-white/50 text-xs uppercase tracking-wider">
-                    Call us
+                    {dict.contact.callUs}
                   </p>
                   <a
                     href="tel:+34694209020"
@@ -166,10 +163,11 @@ export const ContactForm = () => {
           >
             <div className="absolute inset-0 bg-white/5 backdrop-blur-sm rounded-[3rem] border border-white/10 overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2664&auto=format&fit=crop"
                 alt="Contact Team"
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                fill
+                className="object-cover w-full h-full transition-transform duration-1000 group-hover:scale-110"
               />
 
               {/* Floating Info Card */}
@@ -189,9 +187,11 @@ export const ContactForm = () => {
                     ))}
                   </div>
                   <div>
-                    <p className="text-white font-semibold">24/7 Support</p>
+                    <p className="text-white font-semibold">
+                      {dict.contact.support.title}
+                    </p>
                     <p className="text-white/60 text-sm">
-                      Always here to help you
+                      {dict.contact.support.subtitle}
                     </p>
                   </div>
                 </div>

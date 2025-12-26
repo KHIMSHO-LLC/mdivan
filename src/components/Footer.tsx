@@ -1,14 +1,18 @@
 import Link from "next/link";
-import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { Instagram, Linkedin } from "lucide-react";
+import { Locale } from "@/i18n-config";
+import { getDictionary } from "@/get-dictionary";
 
-export const Footer = () => {
+export const Footer = async ({ lang }: { lang: Locale }) => {
+  const dict = await getDictionary(lang);
+
   return (
     <footer className="bg-white border-t border-gray-100 pt-16 pb-8">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-4 gap-12 mb-16">
           <div className="space-y-4">
             <Link
-              href="/"
+              href={`/${lang}`}
               className="flex items-center gap-2 font-sans font-bold text-2xl text-[var(--primary)]"
             >
               <div className="w-8 h-8 bg-[var(--primary)] rounded-lg flex items-center justify-center text-white">
@@ -28,108 +32,89 @@ export const Footer = () => {
               <span className="font-sans tracking-tight">MDIVAN</span>
             </Link>
             <p className="text-gray-500 leading-relaxed">
-              Expert consulting strategies tailored to drive your business
-              success.
+              {dict.footer.tagline}
             </p>
           </div>
 
           <div>
-            <h4 className="font-bold text-[var(--primary)] mb-6">Company</h4>
+            <h4 className="font-bold text-[var(--primary)] mb-6">
+              {dict.footer.company}
+            </h4>
             <ul className="space-y-3 text-gray-600">
               <li>
-                <Link href="#" className="hover:text-[var(--primary)]">
-                  About Us
+                <Link
+                  href={`/${lang}/about`}
+                  className="hover:text-[var(--primary)]"
+                >
+                  {dict.navigation.about}
                 </Link>
               </li>
               <li>
                 <Link href="#" className="hover:text-[var(--primary)]">
-                  Careers
+                  {dict.navigation.careers}
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-[var(--primary)]">
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-[var(--primary)]">
-                  Contact
+                <Link
+                  href={`/${lang}/#contact`}
+                  className="hover:text-[var(--primary)]"
+                >
+                  {dict.navigation.contact}
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-bold text-[var(--primary)] mb-6">Services</h4>
+            <h4 className="font-bold text-[var(--primary)] mb-6">
+              {dict.footer.legal}
+            </h4>
             <ul className="space-y-3 text-gray-600">
               <li>
-                <Link href="#" className="hover:text-[var(--primary)]">
-                  Business Consulting
+                <Link
+                  href={`/${lang}/privacy-policy`}
+                  className="hover:text-[var(--primary)]"
+                >
+                  {dict.navigation.privacy}
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-[var(--primary)]">
-                  Digital Transformation
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-[var(--primary)]">
-                  Market Analysis
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-[var(--primary)]">
-                  Strategy
+                <Link
+                  href={`/${lang}/terms-of-service`}
+                  className="hover:text-[var(--primary)]"
+                >
+                  {dict.navigation.terms}
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-bold text-[var(--primary)] mb-6">Legal</h4>
-            <ul className="space-y-3 text-gray-600">
-              <li>
-                <Link href="#" className="hover:text-[var(--primary)]">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-[var(--primary)]">
-                  Terms of Service
-                </Link>
-              </li>
-            </ul>
+            <h4 className="font-bold text-[var(--primary)] mb-6">
+              {dict.footer.location}
+            </h4>
+            <p className="text-gray-600">{dict.footer.address}</p>
           </div>
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-100">
           <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} MDIVAN. All rights reserved.
+            © {new Date().getFullYear()} MDIVAN. {dict.footer.rights}
           </p>
-          <div className="flex gap-4 mt-4 md:mt-0">
+          <div className="flex gap-6 mt-4 md:mt-0">
             <a
               href="#"
-              className="text-gray-400 hover:text-[var(--primary)] transition-colors"
+              className="text-gray-400 hover:text-[var(--primary)] hover:scale-110 transition-all duration-300"
             >
-              <Facebook className="w-5 h-5" />
+              <Instagram className="w-6 h-6" />
             </a>
             <a
-              href="#"
-              className="text-gray-400 hover:text-[var(--primary)] transition-colors"
+              href="https://www.linkedin.com/company/mdivan/posts/?feedView=all"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-[#0A66C2] hover:scale-110 transition-all duration-300"
             >
-              <Twitter className="w-5 h-5" />
-            </a>
-            <a
-              href="#"
-              className="text-gray-400 hover:text-[var(--primary)] transition-colors"
-            >
-              <Instagram className="w-5 h-5" />
-            </a>
-            <a
-              href="#"
-              className="text-gray-400 hover:text-[var(--primary)] transition-colors"
-            >
-              <Linkedin className="w-5 h-5" />
+              <Linkedin className="w-6 h-6" />
             </a>
           </div>
         </div>
