@@ -1,6 +1,6 @@
 import { Locale } from "@/i18n-config";
 import { getDictionary } from "@/get-dictionary";
-import { AboutContent } from "./AboutContent";
+import { AboutBody } from "./AboutBody";
 
 export default async function AboutPage({
   params,
@@ -10,5 +10,5 @@ export default async function AboutPage({
   const { lang } = await params;
   const dict = await getDictionary(lang as Locale);
 
-  return <AboutContent dict={dict} />;
+  return <AboutBody dict={dict} />;
 }

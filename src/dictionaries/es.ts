@@ -38,7 +38,7 @@ export default {
           "Apoyo dedicado para la gestión diaria, asegurando vidas personales y profesionales organizadas y libres de estrés.",
       },
       om: {
-        title: "Gerentes de Oficina",
+        title: "Gerentes",
         description:
           "Aseguran operaciones diarias fluidas, gestión de instalaciones y coordinación de equipos para un entorno de trabajo productivo.",
       },
@@ -70,9 +70,9 @@ export default {
     title: "Conoce a los expertos detrás de tu éxito",
     members: {
       sarah: { name: "Sarah Johnson", role: "CEO y Fundadora" },
-      michael: { name: "Michael Chen", role: "Jefe de Estrategia" },
-      emma: { name: "Emma Davis", role: "Consultora Principal" },
-      david: { name: "David Wilson", role: "Analista Financiero" },
+      lile: { name: "Lile Gvenetadze", role: "Jefa de Estrategia" },
+      nia: { name: "Nia Tcholadze", role: "Consultora Principal" },
+      giorgi: { name: "Giorgi Khimshiashvili", role: "Socio Director" },
     },
   },
   comparison: {
