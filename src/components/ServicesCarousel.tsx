@@ -14,35 +14,40 @@ export const ServicesCarousel = ({ dict }: { dict: any }) => {
       description: dict.services.items.ea.description,
       image:
         "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=2576&auto=format&fit=crop",
-      featured: true,
     },
     {
       title: dict.services.items.ba.title,
       description: dict.services.items.ba.description,
       image:
         "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop",
-      featured: false,
     },
     {
       title: dict.services.items.pa.title,
       description: dict.services.items.pa.description,
       image:
         "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2671&auto=format&fit=crop",
-      featured: false,
     },
     {
       title: dict.services.items.om.title,
       description: dict.services.items.om.description,
       image:
         "https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=2070&auto=format&fit=crop",
-      featured: false,
     },
   ];
+
+  const getScrollAmount = () => {
+    if (scrollRef.current && scrollRef.current.children[0]) {
+      const cardWidth = scrollRef.current.children[0].clientWidth;
+      const gap = 24; // gap-6 is 24px
+      return cardWidth + gap;
+    }
+    return 450; // fallback
+  };
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
       const { current } = scrollRef;
-      const scrollAmount = 400;
+      const scrollAmount = getScrollAmount();
       if (direction === "left") {
         current.scrollBy({ left: -scrollAmount, behavior: "smooth" });
       } else {
@@ -55,13 +60,15 @@ export const ServicesCarousel = ({ dict }: { dict: any }) => {
     const interval = setInterval(() => {
       if (scrollRef.current) {
         const { current } = scrollRef;
+        const scrollAmount = getScrollAmount();
+
         if (
           current.scrollLeft + current.clientWidth >=
           current.scrollWidth - 10
         ) {
           current.scrollTo({ left: 0, behavior: "smooth" });
         } else {
-          current.scrollBy({ left: 300, behavior: "smooth" });
+          current.scrollBy({ left: scrollAmount, behavior: "smooth" });
         }
       }
     }, 5000);
@@ -101,9 +108,7 @@ export const ServicesCarousel = ({ dict }: { dict: any }) => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`snap-center shrink-0 w-[85vw] sm:w-[350px] md:w-[450px] h-[500px] rounded-3xl overflow-hidden relative group cursor-pointer ${
-                  service.featured ? "md:w-[600px]" : ""
-                }`}
+                className="snap-center shrink-0 w-[85vw] sm:w-[350px] md:w-[450px] h-[500px] rounded-3xl overflow-hidden relative group cursor-pointer"
               >
                 <Image
                   src={service.image}
