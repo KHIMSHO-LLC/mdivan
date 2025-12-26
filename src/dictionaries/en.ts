@@ -38,7 +38,7 @@ export default {
           "Dedicated support for day-to-day management, ensuring organized and stress-free personal and professional lives.",
       },
       om: {
-        title: "Office Managers",
+        title: "Managers",
         description:
           "Ensure smooth daily operations, facility management, and team coordination for a productive workplace environment.",
       },
@@ -69,10 +69,10 @@ export default {
     badge: "Our Team",
     title: "Meet the experts behind your success",
     members: {
-      sarah: { name: "Sarah Johnson", role: "CEO & Founder" },
-      michael: { name: "Michael Chen", role: "Head of Strategy" },
-      emma: { name: "Emma Davis", role: "Lead Consultant" },
-      david: { name: "David Wilson", role: "Financial Analyst" },
+      nia: { name: "Nia Tcholadze", role: "CEO & Founder" },
+      lile: { name: "Lile Gvenetadze", role: "Operations Manager" },
+      giorgi: { name: "Giorgi Khimshiashvili", role: "CTO" },
+      sarah: { name: "Sarah Johnson", role: "Head of Strategy" },
     },
   },
   comparison: {

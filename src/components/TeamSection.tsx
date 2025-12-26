@@ -3,28 +3,25 @@ import Image from "next/image";
 export const TeamSection = ({ dict }: { dict: any }) => {
   const team = [
     {
+      name: dict.team.members.nia.name,
+      role: dict.team.members.nia.role,
+      image: "/nia.jpg",
+    },
+    {
+      name: dict.team.members.lile.name,
+      role: dict.team.members.lile.role,
+      image: "/lile.jpg",
+    },
+    {
+      name: dict.team.members.giorgi.name,
+      role: dict.team.members.giorgi.role,
+      image: "/george.png",
+    },
+    {
       name: dict.team.members.sarah.name,
       role: dict.team.members.sarah.role,
       image:
         "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=2576&auto=format&fit=crop",
-    },
-    {
-      name: dict.team.members.michael.name,
-      role: dict.team.members.michael.role,
-      image:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop",
-    },
-    {
-      name: dict.team.members.emma.name,
-      role: dict.team.members.emma.role,
-      image:
-        "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=2061&auto=format&fit=crop",
-    },
-    {
-      name: dict.team.members.david.name,
-      role: dict.team.members.david.role,
-      image:
-        "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=2574&auto=format&fit=crop",
     },
   ];
 
@@ -45,12 +42,21 @@ export const TeamSection = ({ dict }: { dict: any }) => {
           {team.map((member, index) => (
             <div key={index} className="group">
               <div className="relative overflow-hidden rounded-2xl mb-6 aspect-[3/4]">
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  fill
-                  className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
-                />
+                {member.image.startsWith("/") ? (
+                  /* eslint-disable-next-line @next/next/no-img-element */
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                  />
+                ) : (
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                  />
+                )}
                 <div className="absolute inset-0 bg-[var(--primary)]/0 group-hover:bg-[var(--primary)]/20 transition-colors duration-300"></div>
               </div>
               <h3 className="text-xl font-sans font-bold text-[var(--primary)]">

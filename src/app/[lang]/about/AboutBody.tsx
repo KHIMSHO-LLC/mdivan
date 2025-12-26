@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Check, Heart, Globe, Zap, Users, Shield } from "lucide-react";
 
-export const AboutContent = ({ dict }: { dict: any }) => {
+export const AboutBody = ({ dict }: { dict: any }) => {
   const values = [
     {
       icon: Heart,
