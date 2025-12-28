@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import { Linkedin } from "lucide-react";
 
 export const TeamSection = ({ dict }: { dict: any }) => {
   const team = [
@@ -6,22 +8,19 @@ export const TeamSection = ({ dict }: { dict: any }) => {
       name: dict.team.members.nia.name,
       role: dict.team.members.nia.role,
       image: "/nia.jpg",
+      linkedin: dict.team.members.nia.linkedin,
     },
     {
       name: dict.team.members.lile.name,
       role: dict.team.members.lile.role,
       image: "/lile.jpg",
+      linkedin: dict.team.members.lile.linkedin,
     },
     {
       name: dict.team.members.giorgi.name,
       role: dict.team.members.giorgi.role,
       image: "/george.png",
-    },
-    {
-      name: dict.team.members.sarah.name,
-      role: dict.team.members.sarah.role,
-      image:
-        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=2576&auto=format&fit=crop",
+      linkedin: dict.team.members.giorgi.linkedin,
     },
   ];
 
@@ -38,32 +37,31 @@ export const TeamSection = ({ dict }: { dict: any }) => {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {team.map((member, index) => (
-            <div key={index} className="group">
+            <Link
+              href={member.linkedin}
+              key={index}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block w-full"
+            >
               <div className="relative overflow-hidden rounded-2xl mb-6 aspect-[3/4]">
-                {member.image.startsWith("/") ? (
-                  /* eslint-disable-next-line @next/next/no-img-element */
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
-                  />
-                ) : (
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill
-                    className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
-                  />
-                )}
-                <div className="absolute inset-0 bg-[var(--primary)]/0 group-hover:bg-[var(--primary)]/20 transition-colors duration-300"></div>
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  fill
+                  className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-[var(--primary)]/0 group-hover:bg-[var(--primary)]/20 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                  <Linkedin className="text-white w-8 h-8" />
+                </div>
               </div>
-              <h3 className="text-xl font-sans font-bold text-[var(--primary)]">
+              <h3 className="text-xl font-sans font-bold text-[var(--primary)] group-hover:text-blue-600 transition-colors">
                 {member.name}
               </h3>
               <p className="text-gray-500">{member.role}</p>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

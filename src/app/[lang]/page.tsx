@@ -4,7 +4,8 @@ import { ServicesCarousel } from "@/components/ServicesCarousel";
 import { HowItWorks } from "@/components/HowItWorks";
 import { TeamSection } from "@/components/TeamSection";
 import { FAQ } from "@/components/FAQ";
-import { ContactForm } from "@/components/ContactForm";
+import { ContactSplitter } from "@/components/ContactSplitter";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { getDictionary } from "../../get-dictionary";
 import { Locale } from "../../i18n-config";
 
@@ -21,10 +22,11 @@ export default async function Home({
       <Hero dict={dict} />
       <ServicesCarousel dict={dict} />
       <ComparisonSection dict={dict} />
+      <TestimonialsSection dict={dict} />
       <TeamSection dict={dict} />
       <HowItWorks dict={dict} />
       <FAQ dict={dict} />
-      <ContactForm dict={dict} />
+      <ContactSplitter dict={dict} lang={lang} />
     </main>
   );
 }

@@ -4,7 +4,19 @@ import { ArrowRight, Calendar, Mail, Phone, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-export const ContactForm = ({ dict }: { dict: any }) => {
+interface ContactFormProps {
+  dict: any;
+  forcedMode?: "hiring" | "job";
+  title?: string;
+  subtitle?: string;
+}
+
+export const ContactForm = ({
+  dict,
+  forcedMode,
+  title,
+  subtitle,
+}: ContactFormProps) => {
   return (
     <section
       className="py-24 bg-[var(--primary)] relative overflow-hidden"
@@ -29,9 +41,11 @@ export const ContactForm = ({ dict }: { dict: any }) => {
                 {dict.contact.badge}
               </span>
               <h2 className="text-4xl md:text-5xl font-sans text-white mb-6">
-                {dict.contact.title}
+                {title || dict.contact.title}
               </h2>
-              <p className="text-white/70 max-w-md">{dict.contact.subtitle}</p>
+              <p className="text-white/70 max-w-md">
+                {subtitle || dict.contact.subtitle}
+              </p>
             </div>
 
             <form
@@ -43,7 +57,9 @@ export const ContactForm = ({ dict }: { dict: any }) => {
               <input
                 type="hidden"
                 name="_subject"
-                value="New Submission from MDIVAN Website"
+                value={`New Submission from MDIVAN Website${
+                  forcedMode ? ` (${forcedMode})` : ""
+                }`}
               />
               <input type="hidden" name="_captcha" value="false" />
               <input type="hidden" name="_template" value="table" />
@@ -80,9 +96,10 @@ export const ContactForm = ({ dict }: { dict: any }) => {
                   />
                   <Calendar className="absolute right-4 top-1/2 -translate-y-1/2 text-white/40 w-5 h-5 group-focus-within:text-white transition-colors" />
                 </div>
-                <div className="relative">
+                <div className={`relative ${forcedMode ? "hidden" : ""}`}>
                   <select
                     name="looking_for"
+                    defaultValue={forcedMode || ""}
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 text-white placeholder:text-white/40 focus:outline-none focus:border-white/50 focus:bg-white/10 transition-all appearance-none cursor-pointer"
                   >
                     <option
@@ -98,6 +115,13 @@ export const ContactForm = ({ dict }: { dict: any }) => {
                       {dict.contact.form.jobOption}
                     </option>
                   </select>
+                  {forcedMode && (
+                    <input
+                      type="hidden"
+                      name="looking_for"
+                      value={forcedMode}
+                    />
+                  )}
                 </div>
               </div>
 

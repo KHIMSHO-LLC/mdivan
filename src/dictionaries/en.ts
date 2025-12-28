@@ -12,9 +12,9 @@ export default {
     terms: "Terms of Service",
   },
   hero: {
-    title: "Connecting Visionary Leaders with World-Class Talent",
+    title: "Elite Executive Assistant & Business Associate Recruitment",
     description:
-      "We specialize in finding the perfect Business Associates and Executive Assistants to help you scale your operations and impact.",
+      "Connecting Visionary Leaders with World-Class Talent. We specialize in finding the perfect Business Associates and Executive Assistants to help you scale your operations and impact.",
     cta: "Find Your Match",
     trust: "Trusted by forward-thinking companies worldwide",
   },
@@ -69,13 +69,22 @@ export default {
     badge: "Our Team",
     title: "Meet the experts behind your success",
     members: {
-      nia: { name: "Nia Tcholadze", role: "CEO & Founder" },
+      nia: {
+        name: "Nia Tcholadze",
+        role: "CEO & Founder",
+        linkedin: "https://www.linkedin.com/in/nia-tcholadze-55aba6269/",
+      },
       lile: {
         name: "Lile Gvenetadze",
         role: "Operations Manager & Co-founder",
+        linkedin: "https://www.linkedin.com/in/lile-gvenetadze-353552286/",
       },
-      giorgi: { name: "Giorgi Khimshiashvili", role: "CTO" },
-      sarah: { name: "Sarah Johnson", role: "Head of Strategy" },
+      giorgi: {
+        name: "Giorgi Khimshiashvili",
+        role: "CTO",
+        linkedin:
+          "https://www.linkedin.com/in/giorgi-khimshiashvili-46a816107/",
+      },
     },
   },
   comparison: {
@@ -89,6 +98,30 @@ export default {
       replacement: "Free Replacement Guarantee",
       speed: "Average Placement < 7 Days",
     },
+  },
+  testimonials: {
+    badge: "Success Stories",
+    title: "Trusted by Visionary Leaders",
+    items: [
+      {
+        quote:
+          "Found the perfect EA in 4 days. The speed and quality of candidates were incredible.",
+        author: "Alex Rivers",
+        role: "CEO, Tech Startup",
+      },
+      {
+        quote:
+          "Highly professional and discreet. They handled our sensitive executive search perfectly.",
+        author: "Elena Rodriguez",
+        role: "Founder, Fintech",
+      },
+      {
+        quote:
+          "The candidate quality is unmatched. Much better vetted than what we saw from big agencies.",
+        author: "Marcus Chen",
+        role: "Director, VC Firm",
+      },
+    ],
   },
   faq: {
     badge: "FAQ",
@@ -113,6 +146,18 @@ export default {
   },
   contact: {
     badge: "Contact us",
+    split: {
+      companies: {
+        title: "For Companies",
+        desc: "Find elite talent to scale your business.",
+        cta: "Hire Talent",
+      },
+      candidates: {
+        title: "For Talent",
+        desc: "Join world-class teams and work remotely.",
+        cta: "Apply Now",
+      },
+    },
     title: "Ready to find your perfect match?",
     subtitle:
       "Whether you're hiring top talent or looking for your next career move, we're here to help.",
@@ -315,7 +360,7 @@ export default {
   meta: {
     title: "MDIVAN - Elite Business Associate & Assistant Recruitment",
     description:
-      "Connect with professional, reliable business associates and executive assistants.",
+      "Connect with professional, reliable Executive Assistants and Business Associates in Spain and Europe. Elite remote talent for global leaders.",
     keywords: [
       "Recruitment",
       "Business Associate",
