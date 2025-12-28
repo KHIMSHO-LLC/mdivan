@@ -12,9 +12,10 @@ export default {
     terms: "Términos de Servicio",
   },
   hero: {
-    title: "Conectando Líderes Visionarios con Talento de Clase Mundial",
+    title:
+      "Reclutamiento de Asistentes Ejecutivos y Socios Comerciales de Élite",
     description:
-      "Nos especializamos en encontrar los Socios Comerciales y Asistentes Ejecutivos perfectos para ayudarte a escalar tus operaciones e impacto.",
+      "Conectando Líderes Visionarios con Talento de Clase Mundial. Nos especializamos en encontrar los Socios Comerciales y Asistentes Ejecutivos perfectos para ayudarte a escalar tus operaciones e impacto.",
     cta: "Encuentra tu Pareja",
     trust: "Con la confianza de empresas con visión de futuro en todo el mundo",
   },
@@ -69,13 +70,22 @@ export default {
     badge: "Nuestro Equipo",
     title: "Conoce a los expertos detrás de tu éxito",
     members: {
-      nia: { name: "Nia Tcholadze", role: "CEO & Founder" },
+      nia: {
+        name: "Nia Tcholadze",
+        role: "CEO & Founder",
+        linkedin: "https://www.linkedin.com/in/nia-tcholadze-55aba6269/",
+      },
       lile: {
         name: "Lile Gvenetadze",
-        role: "Operations Manager & Co-founder",
+        role: "Operations Manager",
+        linkedin: "https://www.linkedin.com/in/lile-gvenetadze-353552286/",
       },
-      giorgi: { name: "Giorgi Khimshiashvili", role: "CTO" },
-      sarah: { name: "Sarah Johnson", role: "Head of Strategy" },
+      giorgi: {
+        name: "Giorgi Khimshiashvili",
+        role: "CTO",
+        linkedin:
+          "https://www.linkedin.com/in/giorgi-khimshiashvili-46a816107/",
+      },
     },
   },
   comparison: {
@@ -89,6 +99,30 @@ export default {
       replacement: "Garantía de Reemplazo Gratuita",
       speed: "Colocación Promedio < 7 Días",
     },
+  },
+  testimonials: {
+    badge: "Historias de Éxito",
+    title: "Con la Confianza de Líderes Visionarios",
+    items: [
+      {
+        quote:
+          "Encontramos al EA perfecto en 4 días. La velocidad y calidad de los candidatos fueron increíbles.",
+        author: "Alex Rivers",
+        role: "CEO, Tech Startup",
+      },
+      {
+        quote:
+          "Altamente profesional y discreto. Manejaron nuestra búsqueda ejecutiva sensible perfectamente.",
+        author: "Elena Rodriguez",
+        role: "Founder, Fintech",
+      },
+      {
+        quote:
+          "La calidad de los candidatos es inigualable. Mucho mejor evaluados que lo que vimos de grandes agencias.",
+        author: "Marcus Chen",
+        role: "Director, VC Firm",
+      },
+    ],
   },
   faq: {
     badge: "FAQ",
@@ -113,6 +147,18 @@ export default {
   },
   contact: {
     badge: "Contáctanos",
+    split: {
+      companies: {
+        title: "Para Empresas",
+        desc: "Encuentra talento de élite para escalar tu negocio.",
+        cta: "Contratar Talento",
+      },
+      candidates: {
+        title: "Para Talento",
+        desc: "Únete a equipos de clase mundial y trabaja remotamente.",
+        cta: "Aplicar Ahora",
+      },
+    },
     title: "¿Listo para encontrar tu pareja perfecta?",
     subtitle:
       "Ya sea que estés contratando el mejor talento o buscando tu próximo paso profesional, estamos aquí para ayudar.",
@@ -316,7 +362,7 @@ export default {
     title:
       "MDIVAN - Reclutamiento de Socios Comerciales y Asistentes Ejecutivos",
     description:
-      "Conéctese con socios comerciales y asistentes ejecutivos profesionales y confiables.",
+      "Conéctese con Asistentes Ejecutivos y Socios Comerciales profesionales y confiables en España y Europa. Talento remoto de élite para líderes globales.",
     keywords: [
       "Reclutamiento",
       "Socio Comercial",
