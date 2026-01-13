@@ -3,7 +3,15 @@ import { MetadataRoute } from "next";
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://mdivan.com";
   const languages = ["en", "es"];
-  const pages = ["", "about", "contact", "privacy-policy", "terms-of-service"];
+  const pages = [
+    "",
+    "about",
+    "contact",
+    "privacy-policy",
+    "terms-of-service",
+    "apply",
+    "hire-talent",
+  ];
 
   const sitemap: MetadataRoute.Sitemap = [];
 

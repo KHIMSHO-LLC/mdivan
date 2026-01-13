@@ -27,6 +27,29 @@ export default async function PrivacyPolicy({
 
   return (
     <main className="min-h-screen pt-32 pb-24 bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://mdivan.com",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: dict.privacyPolicy.title,
+                item: `https://mdivan.com/${lang}/privacy-policy`,
+              },
+            ],
+          }),
+        }}
+      />
       <div className="container mx-auto px-4 md:px-6 max-w-3xl">
         <h1 className="text-4xl md:text-5xl font-sans font-bold text-[var(--primary)] mb-8">
           {privacyPolicy.title}

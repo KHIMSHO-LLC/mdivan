@@ -129,12 +129,26 @@ export default async function RootLayout({
     ],
   };
 
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "MDIVAN",
+    url: "https://mdivan.com",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: "https://mdivan.com/?q={search_term_string}",
+      "query-input": "required name=search_term_string",
+    },
+  };
+
   return (
     <html lang={lang} className="scroll-smooth">
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([jsonLd, websiteJsonLd]),
+          }}
         />
       </head>
       <body className={`${inter.variable} ${geistMono.variable} antialiased`}>
