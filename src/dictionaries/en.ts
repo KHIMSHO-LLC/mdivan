@@ -128,19 +128,25 @@ export default {
     title: "Common Questions",
     items: [
       {
-        question: "How long does the hiring process take?",
+        question:
+          "What is a Business Associate and how is it different from an EA?",
         answer:
-          "Typically, we present qualified candidates within 3-5 business days. The entire process from discovery to placement usually takes 7-14 days.",
+          "A Business Associate is a strategic partner who goes beyond administrative tasks. While they handle EA duties, they also manage operations, project coordination, and client relations, effectively functioning as a Chief of Staff or Operations Manager.",
       },
       {
-        question: "What if the candidate isn't a good fit?",
+        question: "How do you ensure the quality of your candidates?",
         answer:
-          "We offer a 90-day replacement guarantee. If it doesn't work out, we'll find a new candidate at no extra cost.",
+          "We have a rigorous vetting process where we select the top 1% of talent. Once selected, we provide comprehensive training to ensure they are ready to handle high-level business operations from day one.",
       },
       {
-        question: "Do you work with international clients?",
+        question: "Do you help candidates find jobs?",
         answer:
-          "Yes, we work with clients and talent globally, supporting remote and hybrid placements.",
+          "Yes, we are a dual-sided platform. We strictly vet and train elite talent, then connect them with visionary leaders and companies looking for long-term partners.",
+      },
+      {
+        question: "How does the hiring process work for companies?",
+        answer:
+          "We start with a discovery call to understand your needs. Then, we present you with pre-vetted, trained candidates that match your culture and requirements. The average time to placement is under 7 days.",
       },
     ],
   },
