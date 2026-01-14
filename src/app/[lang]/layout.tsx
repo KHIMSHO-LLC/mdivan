@@ -43,26 +43,11 @@ export async function generateMetadata({
       siteName: "MDIVAN",
       locale: lang === "en" ? "en_US" : "es_ES",
       type: "website",
-      images: [
-        {
-          url: "https://mdivan.com/nia.jpg",
-          width: 800,
-          height: 800,
-          alt: "Nia Tcholadze - CEO & Founder",
-        },
-        {
-          url: "https://mdivan.com/lile.jpg",
-          width: 800,
-          height: 800,
-          alt: "Lile Gvenetadze - Operations Manager & Co-founder",
-        },
-      ],
     },
     twitter: {
       card: "summary_large_image",
       title: dict.meta.title,
       description: dict.meta.description,
-      images: ["https://mdivan.com/nia.jpg"],
     },
   };
 }
@@ -87,6 +72,7 @@ export default async function RootLayout({
     name: "MDIVAN",
     description: dict.meta.description,
     url: "https://mdivan.com",
+    logo: "https://mdivan.com/icon.png",
     priceRange: "$$$",
     areaServed: {
       "@type": "City",
