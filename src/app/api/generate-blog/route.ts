@@ -107,6 +107,19 @@ export async function GET(request: Request) {
       JSON.stringify(error, Object.getOwnPropertyNames(error))
     );
 
+    // DEBUG: List available models to find out what is actually supported
+    let availableModels = "Could not fetch models";
+    try {
+      const listResponse = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models?key=${process.env.GOOGLE_API_KEY}`
+      );
+      const listData = await listResponse.json();
+      availableModels = JSON.stringify(listData);
+      console.log("AVAILABLE MODELS FOR THIS KEY:", availableModels);
+    } catch (e) {
+      console.error("Failed to list models", e);
+    }
+
     // Check if key is missing (Debug)
     const hasKey = !!process.env.GOOGLE_API_KEY;
     console.log("Has Google API Key:", hasKey);
@@ -116,6 +129,7 @@ export async function GET(request: Request) {
         error: error.message,
         details: error.toString(),
         hasKey: hasKey,
+        availableModels: availableModels, // Return this to the user in the error
       },
       { status: 500 }
     );
