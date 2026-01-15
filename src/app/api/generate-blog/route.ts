@@ -16,7 +16,7 @@ export async function GET(request: Request) {
 
     // 2. Setup Gemini
     const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY || "");
-    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+    const model = genAI.getGenerativeModel({ model: "gemini-3-flash-preview" });
 
     // 3. Pick a Topic
     const topic = SEO_TOPICS[Math.floor(Math.random() * SEO_TOPICS.length)];
@@ -96,42 +96,9 @@ export async function GET(request: Request) {
       sha: sha,
     });
 
-    // 5. Commit to GitHub (Self-Update)
-    // ... (rest of the code) ...
-    // Note: I will keep the rest of the file logic same, just updating the error handling and adding a check.
-
     return NextResponse.json({ success: true, post: finalPost });
   } catch (error: any) {
-    console.error(
-      "Blog Generation Detailed Error:",
-      JSON.stringify(error, Object.getOwnPropertyNames(error))
-    );
-
-    // DEBUG: List available models to find out what is actually supported
-    let availableModels = "Could not fetch models";
-    try {
-      const listResponse = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models?key=${process.env.GOOGLE_API_KEY}`
-      );
-      const listData = await listResponse.json();
-      availableModels = JSON.stringify(listData);
-      console.log("AVAILABLE MODELS FOR THIS KEY:", availableModels);
-    } catch (e) {
-      console.error("Failed to list models", e);
-    }
-
-    // Check if key is missing (Debug)
-    const hasKey = !!process.env.GOOGLE_API_KEY;
-    console.log("Has Google API Key:", hasKey);
-
-    return NextResponse.json(
-      {
-        error: error.message,
-        details: error.toString(),
-        hasKey: hasKey,
-        availableModels: availableModels, // Return this to the user in the error
-      },
-      { status: 500 }
-    );
+    console.error("Blog Generation Error:", error);
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
