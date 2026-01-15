@@ -96,9 +96,28 @@ export async function GET(request: Request) {
       sha: sha,
     });
 
+    // 5. Commit to GitHub (Self-Update)
+    // ... (rest of the code) ...
+    // Note: I will keep the rest of the file logic same, just updating the error handling and adding a check.
+
     return NextResponse.json({ success: true, post: finalPost });
   } catch (error: any) {
-    console.error("Blog Generation Error:", error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    console.error(
+      "Blog Generation Detailed Error:",
+      JSON.stringify(error, Object.getOwnPropertyNames(error))
+    );
+
+    // Check if key is missing (Debug)
+    const hasKey = !!process.env.GOOGLE_API_KEY;
+    console.log("Has Google API Key:", hasKey);
+
+    return NextResponse.json(
+      {
+        error: error.message,
+        details: error.toString(),
+        hasKey: hasKey,
+      },
+      { status: 500 }
+    );
   }
 }
