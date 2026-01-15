@@ -23,6 +23,7 @@ export const HeaderClient = ({ lang, dict }: { lang: Locale; dict: any }) => {
     { name: dict.navigation.howItWorks, href: `/${lang}#how-it-works` },
     { name: dict.navigation.team, href: `/${lang}#team` },
     { name: dict.navigation.about, href: `/${lang}/about` },
+    { name: dict.navigation.blog, href: `/${lang}/blog` },
   ];
 
   return (
@@ -62,7 +63,7 @@ export const HeaderClient = ({ lang, dict }: { lang: Locale; dict: any }) => {
             <Link
               key={idx}
               href={link.href}
-              className="text-sm font-bold text-gray-600 hover:text-[var(--primary)] transition-colors"
+              className="text-base font-bold text-gray-600 hover:text-[var(--primary)] transition-colors"
             >
               {link.name}
             </Link>

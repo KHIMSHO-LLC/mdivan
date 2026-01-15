@@ -11,6 +11,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "terms-of-service",
     "apply",
     "hire-talent",
+    "services/executive-assistant",
+    "services/business-associate",
+    "services/personal-assistant",
+    "services/operations-manager",
+    "blog",
+    "blog/why-you-need-business-associate",
+    "blog/hiring-remote-talent-europe",
   ];
 
   const sitemap: MetadataRoute.Sitemap = [];

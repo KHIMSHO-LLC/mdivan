@@ -23,24 +23,80 @@ export default {
     heading: "Reliable talent to drive your business forward",
     items: {
       ea: {
+        slug: "executive-assistant",
         title: "Executive Assistants",
         description:
           "High-level support for C-suite executives, managing schedules, travel, and confidential communications with precision.",
+        fullDescription:
+          "Our Executive Assistants are more than just gatekeepers; they are strategic partners for C-suite leaders. They proactively manage your time, handle complex logistics, and act as your proxy in critical communications, ensuring you can focus on high-impact decisions.",
+        benefits: [
+          "Complex calendar & inbox management",
+          "Global travel logistics & itinerary planning",
+          "Confidential liaison for board members & VIPs",
+          "Personal lifestyle management",
+        ],
+        meta: {
+          title: "Hire Remote Executive Assistants | MDIVAN",
+          description:
+            "Find elite remote Executive Assistants for C-suite support. We vet the top 1% of talent in Europe to support global leaders.",
+        },
       },
       ba: {
+        slug: "business-associate",
         title: "Business Associates",
         description:
           "Versatile professionals capable of handling operations, project coordination, and client relations to drive business efficiency.",
+        fullDescription:
+          "A Business Associate is a versatile generalist who bridges the gap between operations and strategy. Ideal for startups and fast-growing teams, they handle project management, client onboarding, market research, and operational workflows.",
+        benefits: [
+          "Project management & coordination",
+          "Client relations & onboarding",
+          "Market research & data analysis",
+          "Operational process optimization",
+        ],
+        meta: {
+          title: "Hire Business Associates & Ops Support | MDIVAN",
+          description:
+            "Scale your startup with top-tier Business Associates. Versatile remote talent for operations, projects, and growth.",
+        },
       },
       pa: {
+        slug: "personal-assistant",
         title: "Personal Assistants",
         description:
           "Dedicated support for day-to-day management, ensuring organized and stress-free personal and professional lives.",
+        fullDescription:
+          "Our Personal Assistants ensure your life outside of work runs as smoothly as your business. From managing household staff and family schedules to planning events and handling private finances, they give you back your personal time.",
+        benefits: [
+          "Household & estate management",
+          "Event planning & private travel",
+          "Family scheduling & logistics",
+          "Private financial administration",
+        ],
+        meta: {
+          title: "Hire Elite Personal Assistants | MDIVAN",
+          description:
+            "Dedicated private Personal Assistants for high-net-worth individuals. Organize your personal life with discreet, professional support.",
+        },
       },
       om: {
+        slug: "operations-manager",
         title: "Managers",
         description:
           "Ensure smooth daily operations, facility management, and team coordination for a productive workplace environment.",
+        fullDescription:
+          "Effective Operations Managers are the backbone of a remote-first company. They establish the systems, tools, and culture that allow distributed teams to thrive, handling everything from HR admin to software procurement.",
+        benefits: [
+          "Remote office & tool management",
+          "HR administration & onboarding",
+          "Process documentation & SOPs",
+          "Team culture & retreat planning",
+        ],
+        meta: {
+          title: "Hire Remote Operations Managers | MDIVAN",
+          description:
+            "Find experienced Operations Managers to build and scale your remote infrastructure. Systems, HR, and culture experts.",
+        },
       },
     },
   },
@@ -147,6 +203,26 @@ export default {
         question: "How does the hiring process work for companies?",
         answer:
           "We start with a discovery call to understand your needs. Then, we present you with pre-vetted, trained candidates that match your culture and requirements. The average time to placement is under 7 days.",
+      },
+      {
+        question: "Is hiring remote talent safe and secure?",
+        answer:
+          "Absolutely. All our candidates undergo rigorous background checks and sign strict Non-Disclosure Agreements (NDAs). We also advise on best practices for secure access management (LastPass, VPNs) to protect your company data.",
+      },
+      {
+        question: "What if the time difference is an issue?",
+        answer:
+          "It's rarely an issue and often an advantage. Our European talent works overlapping hours with US mornings (EST/CST), ensuring real-time collaboration. The rest of their day is spent on deep work, meaning projects are completed by the time you wake up.",
+      },
+      {
+        question: "Do you handle payroll and compliance?",
+        answer:
+          "We can! We offer two models: 1) Direct Hire (you pay them directly as contractors) or 2) Employer of Record (we handle payroll/compliance for a monthly fee). Most startups prefer the Direct Hire model for flexibility.",
+      },
+      {
+        question: "What happens during the first week of onboarding?",
+        answer:
+          "We don't just drop off the candidate. MDIVAN provides a structured 'First 90 Days' success plan. We check in on days 1, 7, and 30 to ensure communication flows smoothly and expectations are met.",
       },
     ],
   },
@@ -368,11 +444,133 @@ export default {
     description:
       "Connect with professional, reliable Executive Assistants and Business Associates in Spain and Europe. Elite remote talent for global leaders.",
     keywords: [
-      "Recruitment",
-      "Business Associate",
+      // Core Roles
       "Executive Assistant",
-      "Staffing",
-      "Hiring",
+      "Business Associate",
+      "Personal Assistant",
+      "Chief of Staff",
+      "Operations Manager",
+      "Virtual Assistant",
+      "Administrative Assistant",
+      "Executive Support",
+      // Intent: Hire/Find
+      "Hire Executive Assistant",
+      "Find Business Associate",
+      "Best Executive Assistants",
+      "Hire Personal Assistant",
+      "Recruit Chief of Staff",
+      "Hire Operations Manager",
+      "Find Virtual Assistant",
+      // Location Specific: Europe
+      "Executive Assistant Europe",
+      "Remote Talent Europe",
+      "Hire EA in Europe",
+      "European Virtual Assistants",
+      "Business Associate Europe",
+      "Recruitment Agency Europe",
+      "Staffing Agency Spain",
+      "Virtual Assistant Spain",
+      // Location Specific: USA / Global
+      "Executive Assistant for US Companies",
+      "Remote Support for USA Startups",
+      "Global Talent Recruitment",
+      "Hire Remote Workers for USA",
+      "Offshore Executive Assistant",
+      "Nearshore Staffing Europe",
+      // Niche / Specifics
+      "Bilingual Executive Assistant",
+      "English Speaking VA Europe",
+      "C-Level Support",
+      "Startup Operations Support",
+      "Founder Support",
+      "CEO Assistant",
+      "Tech Startup Assistant",
+      "Remote Office Manager",
+      "Fractional COO",
+      // Long Tail / Questions
+      "How to hire an executive assistant",
+      "Cost of hiring a business associate",
+      "Benefits of remote executive assistants",
+      "Best recruitment agency for startups",
+      "Where to find elite administrative talent",
+      "Executive assistant vs Chief of Staff",
+      "Business Associate vs Virtual Assistant",
+      // Qualifiers
+      "Elite",
+      "Premium",
+      "Top 1%",
+      "Vetted",
+      "Experienced",
+      "Professional",
+      "Dedicated",
+      "Full-time",
+      "Part-time",
+      "Remote",
+      "Virtual",
+      // Industry Specific
+      "Fintech Executive Assistant",
+      "SaaS Business Associate",
+      "Venture Capital Support",
+      "Investment Banking Assistant",
+      "Consulting Support Staff",
+      // Additional Variations
+      "Remote Executive Assistant Europe",
+      "Business Associate for Startups",
+      "Fractional Chief of Staff",
+      "Executive Search Spain",
+      "Elite Administrative Support",
+      "Impact Driven Recruitment",
+      "Virtual Assistant for CEOs",
+      "Bilingual Executive Assistant",
+      "Remote EA",
+      "Remote BA",
+      "Remote PA",
+      "Digital Nomad Assistant",
+      "Time Zone Aligned VA",
+      "GDPR Compliant VA",
+      "High Net Worth Personal Assistant",
+      "Family Office Support",
+      "Lifestyle Manager",
+      "Private Professional Assistance",
+      "Corporate Travel Manager",
+      "Event Planning Assistant",
+      "Project Coordinator Remote",
+      "Operations Coordinator",
+      "Executive Search Firm",
+      "Headhunters for Admin Staff",
+      "Talent Acquisition Europe",
+      "Staffing Solutions for Startups",
+      "Remote Team Building",
+      "Distributed Team Support",
+      "Asynchronous Work Support",
+      "Calendar Management Expert",
+      "Inbox Management Specialist",
+      "Travel Logistics Coordinator",
+      "Meeting Minutes Taker",
+      "Research Assistant Remote",
+      "Data Entry Specialist",
+      "CRM Management Assistant",
+      "Social Media Assistant for CEOs",
+      "LinkedIn Management for Executives",
+      "Personal Brand Assistant",
+      "Ghostwriter for Executives",
+      "Content Manager for Founders",
+      "Podcast Assistant",
+      "Webinar Coordinator",
+      "Zoom Meeting Facilitator",
+      "Slack Community Manager",
+      "Discord Moderator for Startups",
+      "Notion Expert Assistant",
+      "Linear Project Manager",
+      "Asana Specialist",
+      "Trello Expert",
+      "Monday.com Administrator",
+      "G-Suite Expert",
+      "Office 365 Administrator",
+      "Quickbooks Assistant",
+      "Xero Bookkeeping Assistant",
+      "Invoicing & Billing Assistant",
+      "Expense Reporting Specialist",
     ],
   },
 };
