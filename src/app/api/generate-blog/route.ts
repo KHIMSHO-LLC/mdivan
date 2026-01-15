@@ -65,9 +65,9 @@ export async function POST(request: Request) {
       }),
       readTime: "5 min read",
       author: {
-        name: "MDIVAN Editorial Team",
-        role: "Recruitment Experts",
-        image: "/icon.png", // Use brand logo for AI posts
+        name: "MDIVAN Insights",
+        role: "Future of Work Experts",
+        image: "/icon.png", // Using brand logo
       },
     };
 
