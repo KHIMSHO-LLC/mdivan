@@ -19,11 +19,13 @@ export async function GET(request: Request) {
 
     // Best Practice: List of models to try in order of preference (Balancing quality, speed, and quotas)
     // Based on your available models list
+    // Best Practice: List of models to try in order of preference (Balancing quality, speed, and quotas)
+    // Based on your available models list
     const MODEL_CANDIDATES = [
-      "gemini-2.0-flash-001", // Stable 2.0 Flash (Jan 2025) - Best balance
-      "gemini-2.5-flash-lite", // Stable 2.5 Lite (July 2025) - High speed, low cost/quota usage
-      "gemini-flash-latest", // Generic alias for latest stable Flash
-      "gemini-2.0-flash", // Generic alias for 2.0 Flash
+      "gemini-2.5-flash-lite", // 1. Lite (Fastest, Best Quota for Free Tier)
+      "gemini-2.0-flash-001", // 2. Stable 2.0 Flash (Jan 2025) - Best balance
+      "gemini-flash-latest", // 3. Generic alias for latest stable Flash
+      "gemini-2.0-flash", // 4. Generic alias for 2.0 Flash
     ];
 
     // 3. Pick a Topic
@@ -70,11 +72,19 @@ export async function GET(request: Request) {
 
         if (!text) throw new Error("Empty response from AI");
 
-        // Clean JSON
-        const cleanJson = text
+        // Robust JSON Cleaning
+        // 1. Remove Markdown fences
+        let cleanJson = text
           .replace(/```json/g, "")
           .replace(/```/g, "")
           .trim();
+
+        // 2. Fix common AI JSON errors (unescaped newlines inside strings)
+        // This regex looks for newlines that are NOT part of the JSON structure
+        cleanJson = cleanJson.replace(
+          /[\n\r](?=([^"]*"[^"]*")*[^"]*$)/g,
+          "\\n"
+        );
 
         const blogPost = JSON.parse(cleanJson);
 
@@ -121,9 +131,18 @@ export async function GET(request: Request) {
     const content = Buffer.from(file.data.content, "base64").toString();
     const sha = file.data.sha;
 
-    // Inject new post (Before the last closing bracket "];")
+    // Inject new post
+    // Improved Logic: Use regex to find the closing bracket "];"
+    // We capture optional whitespace and optional trailing comma before it.
+    // This allows us to safely append ", NewPost" without creating double commas (,,).
     const newPostString = formatBlogPostForInjection(finalPost);
-    const updatedContent = content.replace("];", `,${newPostString}\n];`);
+
+    // Regex finds: optional comma (,), optional whitespace (\s), then ];
+    // We replace it with: , (to ensure separation), NewPost, ];
+    const updatedContent = content.replace(
+      /(,\s*)?];\s*$/,
+      `,\n${newPostString}\n];`
+    );
 
     // push update
     await octokit.request(`PUT /repos/${owner}/${repo}/contents/${path}`, {

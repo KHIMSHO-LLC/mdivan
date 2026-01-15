@@ -123,7 +123,7 @@ export const blogPosts: BlogPost[] = [
     `,
     },
   },
-,
+
   {
     slug: "scale-startup-business-associate-operational-leverage",
     title: {
