@@ -16,7 +16,7 @@ export async function GET(request: Request) {
 
     // 2. Setup Gemini
     const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY || "");
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
     // 3. Pick a Topic
     const topic = SEO_TOPICS[Math.floor(Math.random() * SEO_TOPICS.length)];
