@@ -33,24 +33,21 @@ export async function GET(request: Request) {
 
     // 4. Generate Content via Gemini (With Fallback Strategy)
     const prompt = `
-      You are an expert content writer for MDIVAN, an elite recruitment agency connecting C-suite leaders with top Business Associates and Executive Assistants in Europe and America (USA).
-      
-      Write a professional, SEO-optimized blog post about: "${topic}".
+      You are an expert content writer for MDIVAN.
+      Write a professional blog post about: "${topic}".
       
       Requirements:
-      - Tone: Professional, authoritative, yet accessible. Aim for HBR (Harvard Business Review) style.
-      - Length: Approx 500 words per language. (Keep it concise to ensure generation speed).
-      - Structure: Use HTML tags for formatting (<h2>, <h3>, <p>, <ul>, <li>). Do NOT use markdown.
-      - Languages: Provide BOTH English (en) and Spanish (es) versions.
-      - E-E-A-T: Include real-world examples or hypothetical case studies.
-      - Call to Action: End with a subtle push to hire talent via MDIVAN.
+      - Length: ~500 words/language.
+      - Structure: HTML tags only.
+      - Languages: English (en) and Spanish (es).
+      - STRICT JSON OUTPUT: You MUST output valid JSON. All keys must be double-quoted. No trailing commas.
       
-      Output JSON format ONLY:
+      Output Schema:
       {
-        "title": { "en": "Draft Title", "es": "Título en Español" },
-        "excerpt": { "en": "Summary...", "es": "Resumen..." },
-        "content": { "en": "HTML content...", "es": "Contenido HTML..." },
-        "slug": "english-url-friendly-slug"
+        "title": { "en": "Title", "es": "Título" },
+        "excerpt": { "en": "Summary", "es": "Resumen" },
+        "content": { "en": "HTML...", "es": "HTML..." },
+        "slug": "url-slug"
       }
     `;
 
@@ -61,7 +58,10 @@ export async function GET(request: Request) {
     for (const modelName of MODEL_CANDIDATES) {
       try {
         console.log(`Attempting to generate blog with model: ${modelName}`);
-        const model = genAI.getGenerativeModel({ model: modelName });
+        const model = genAI.getGenerativeModel({
+          model: modelName,
+          generationConfig: { responseMimeType: "application/json" }, // Force JSON mode
+        });
 
         // Timeout logic: If Gemini takes > 9 seconds, we might timeout Vercel (10s limit).
         // Note: We can't easily enforce timeout here without abort controller, but using Flash models helps.
@@ -72,19 +72,20 @@ export async function GET(request: Request) {
 
         if (!text) throw new Error("Empty response from AI");
 
-        // Robust JSON Cleaning
-        // 1. Remove Markdown fences
-        let cleanJson = text
+        // Advanced JSON Extraction & Cleaning
+        let cleanJson = text;
+        const firstBrace = cleanJson.indexOf("{");
+        const lastBrace = cleanJson.lastIndexOf("}");
+
+        if (firstBrace !== -1 && lastBrace !== -1) {
+          cleanJson = cleanJson.substring(firstBrace, lastBrace + 1);
+        }
+
+        // Sanitize: formatting, newlines, bad chars
+        cleanJson = cleanJson
           .replace(/```json/g, "")
           .replace(/```/g, "")
-          .trim();
-
-        // 2. Fix common AI JSON errors (unescaped newlines inside strings)
-        // This regex looks for newlines that are NOT part of the JSON structure
-        cleanJson = cleanJson.replace(
-          /[\n\r](?=([^"]*"[^"]*")*[^"]*$)/g,
-          "\\n"
-        );
+          .replace(/[\u0000-\u0019]+/g, ""); // Remove control chars
 
         const blogPost = JSON.parse(cleanJson);
 
