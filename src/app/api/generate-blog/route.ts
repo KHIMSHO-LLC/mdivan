@@ -6,7 +6,7 @@ import { SEO_TOPICS, formatBlogPostForInjection } from "@/lib/blog-manager";
 // Prevent this route from being cached
 export const dynamic = "force-dynamic";
 
-export async function POST(request: Request) {
+export async function GET(request: Request) {
   try {
     // 1. Verify Secret (Basic security for Cron)
     const authHeader = request.headers.get("authorization");
