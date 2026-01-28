@@ -436,4 +436,113 @@ export const blogPosts: BlogPost[] = [
       `,
     },
   },
+
+  {
+    slug: "setting-kpis-for-executive-assistant",
+    title: {
+      en: "Setting Effective KPIs for Your Executive Assistant",
+      es: "Establecer KPIs Efectivos para su Asistente Ejecutivo",
+    },
+    excerpt: {
+      en: "Discover how to set meaningful Key Performance Indicators (KPIs) for your Executive Assistant to drive productivity, efficiency, and mutual success.",
+      es: "Descubra cómo establecer Indicadores Clave de Rendimiento (KPIs) significativos para su Asistente Ejecutivo para impulsar la productividad, la eficiencia y el éxito mutuo.",
+    },
+    date: "January 28, 2026",
+    readTime: "4 min read",
+    author: {
+      name: "MDIVAN Insights",
+      role: "Future of Work Experts",
+      image: "/icon.png",
+    },
+    content: {
+      en: `
+<h2>Why KPIs Matter for Executive Assistants</h2>
+<p>An Executive Assistant (EA) is often the linchpin of a busy executive's schedule and operations. To ensure optimal performance and alignment with your goals, setting clear Key Performance Indicators (KPIs) is crucial. KPIs provide a measurable way to track progress, identify areas for improvement, and celebrate achievements. They move beyond subjective feedback, offering objective benchmarks for success.</p>
+
+<h2>Key Areas to Consider for EA KPIs</h2>
+
+<h3>1. Time Management & Efficiency</h3>
+<ul>
+  <li><strong>Meeting Scheduling Accuracy:</strong> Percentage of meetings scheduled correctly (time, attendees, location, agenda).</li>
+  <li><strong>Response Time:</strong> Average response time for emails and urgent requests.</li>
+  <li><strong>Task Completion Rate:</strong> Percentage of assigned tasks completed by the deadline.</li>
+</ul>
+
+<h3>2. Communication & Professionalism</h3>
+<ul>
+  <li><strong>Accuracy of Communications:</strong> Number of errors in drafted communications (emails, memos, reports).</li>
+  <li><strong>Professionalism in Interactions:</strong> Feedback from internal/external stakeholders (can be measured through periodic surveys or direct feedback).</li>
+  <li><strong>Confidentiality Adherence:</strong> Absence of breaches in handling sensitive information.</li>
+</ul>
+
+<h3>3. Proactiveness & Problem-Solving</h3>
+<ul>
+  <li><strong>Anticipation of Needs:</strong> Number of times the EA proactively identified and addressed a potential issue before it became a problem.</li>
+  <li><strong>Successful Issue Resolution:</strong> Rate of issues the EA successfully resolved independently or with minimal guidance.</li>
+</ul>
+
+<h3>4. Project Management & Support</h3>
+<ul>
+  <li><strong>Project Timeline Adherence:</strong> For projects managed or supported by the EA, the percentage that stays on schedule.</li>
+  <li><strong>Budget Management Accuracy:</strong> Accuracy in tracking and reporting project or departmental expenses.</li>
+</ul>
+
+<h2>Setting Your KPIs: A Practical Approach</h2>
+
+<ol>
+  <li><strong>Collaborate:</strong> Discuss potential KPIs with your EA. Their input is invaluable for setting realistic and motivating targets.</li>
+  <li><strong>Be Specific (SMART):</strong> Ensure your KPIs are Specific, Measurable, Achievable, Relevant, and Time-bound.</li>
+  <li><strong>Focus on Impact:</strong> Choose KPIs that directly reflect the value your EA brings to your role and the organization.</li>
+  <li><strong>Regular Review:</strong> Schedule regular check-ins (weekly or bi-weekly) to review progress against KPIs. Adjust as needed based on evolving priorities.</li>
+  <li><strong>Provide Feedback & Resources:</strong> Offer constructive feedback and ensure your EA has the resources and training to meet their KPIs.</li>
+</ol>
+
+<p>By implementing well-defined KPIs, you empower your Executive Assistant, foster a high-performance environment, and build a stronger, more efficient working relationship. This strategic approach not only benefits the EA but significantly enhances your own productivity and effectiveness.</p>
+      `,
+      es: `
+<h2>¿Por Qué Son Importantes los KPIs para los Asistentes Ejecutivos?</h2>
+<p>Un Asistente Ejecutivo (AE) es a menudo la pieza clave de la agenda y las operaciones de un ejecutivo ocupado. Para garantizar un rendimiento óptimo y la alineación con sus objetivos, es fundamental establecer Indicadores Clave de Rendimiento (KPIs) claros. Los KPIs proporcionan una forma medible de seguir el progreso, identificar áreas de mejora y celebrar los logros. Van más allá de la retroalimentación subjetiva, ofreciendo puntos de referencia objetivos para el éxito.</p>
+
+<h2>Áreas Clave a Considerar para los KPIs de un AE</h2>
+
+<h3>1. Gestión del Tiempo y Eficiencia</h3>
+<ul>
+  <li><strong>Precisión en la Programación de Reuniones:</strong> Porcentaje de reuniones programadas correctamente (hora, asistentes, lugar, agenda).</li>
+  <li><strong>Tiempo de Respuesta:</strong> Tiempo promedio de respuesta a correos electrónicos y solicitudes urgentes.</li>
+  <li><strong>Tasa de Finalización de Tareas:</strong> Porcentaje de tareas asignadas completadas dentro del plazo.</li>
+</ul>
+
+<h3>2. Comunicación y Profesionalismo</h3>
+<ul>
+  <li><strong>Precisión en las Comunicaciones:</strong> Número de errores en comunicaciones redactadas (correos electrónicos, memorandos, informes).</li>
+  <li><strong>Profesionalismo en las Interacciones:</strong> Retroalimentación de partes interesadas internas/externas (se puede medir a través de encuestas periódicas o retroalimentación directa).</li>
+  <li><strong>Cumplimiento de la Confidencialidad:</strong> Ausencia de violaciones al manejar información sensible.</li>
+</ul>
+
+<h3>3. Proactividad y Resolución de Problemas</h3>
+<ul>
+  <li><strong>Anticipación de Necesidades:</strong> Número de veces que el AE identificó y abordó proactivamente un problema potencial antes de que se convirtiera en uno.</li>
+  <li><strong>Resolución Exitosa de Problemas:</strong> Tasa de problemas que el AE resolvió con éxito de forma independiente o con mínima supervisión.</li>
+</ul>
+
+<h3>4. Gestión de Proyectos y Soporte</h3>
+<ul>
+  <li><strong>Cumplimiento de Plazos de Proyectos:</strong> Para proyectos gestionados o apoyados por el AE, el porcentaje que se mantiene según lo programado.</li>
+  <li><strong>Precisión en la Gestión de Presupuestos:</strong> Exactitud en el seguimiento y la presentación de informes de gastos de proyectos o departamentos.</li>
+</ul>
+
+<h2>Establecer sus KPIs: Un Enfoque Práctico</h2>
+
+<ol>
+  <li><strong>Colabore:</strong> Discuta los KPIs potenciales con su AE. Su opinión es invaluable para establecer objetivos realistas y motivadores.</li>
+  <li><strong>Sea Específico (SMART):</strong> Asegúrese de que sus KPIs sean Específicos, Medibles, Alcanzables, Relevantes y con Plazo Definido (SMART).</li>
+  <li><strong>Enfoque en el Impacto:</strong> Elija KPIs que reflejen directamente el valor que su AE aporta a su puesto y a la organización.</li>
+  <li><strong>Revisión Regular:</strong> Programe reuniones de seguimiento periódicas (semanales o quincenales) para revisar el progreso de los KPIs. Ajuste según sea necesario en función de las prioridades cambiantes.</li>
+  <li><strong>Proporcione Retroalimentación y Recursos:</strong> Ofrezca retroalimentación constructiva y asegúrese de que su AE tenga los recursos y la capacitación para cumplir sus KPIs.</li>
+</ol>
+
+<p>Al implementar KPIs bien definidos, usted empodera a su Asistente Ejecutivo, fomenta un entorno de alto rendimiento y construye una relación de trabajo más sólida y eficiente. Este enfoque estratégico no solo beneficia al AE, sino que mejora significativamente su propia productividad y efectividad.</p>
+      `,
+    },
+  },
 ];
