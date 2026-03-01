@@ -291,12 +291,12 @@ export default {
   about: {
     missionBadge: "Our Mission",
     missionTitle:
-      "Helping impact-driven companies succeed more than profit-driven ones.",
+      "Empowering forward-thinking companies to scale efficiently without limits.",
     missionDesc:
       "We connect visionary leaders with elite Business Associates and Executive Assistants who liberate founders to focus on strategy and purpose.",
     imageTitle: "More than just recruitment",
     imageDesc:
-      "We are a fully remote company with a passion for finding brilliant talent for unique positions. Our ecosystem is built to support founders and companies at every stage of growth.",
+      "We are a distributed organization dedicated to matching exceptional professionals with specialized roles. Our ecosystem is built to support founders and companies at every stage of growth.",
     services: {
       leadership: {
         title: "Leadership Recruitment",
@@ -304,7 +304,7 @@ export default {
       },
       associates: {
         title: "Business Associates",
-        desc: "Full-time, dedicated associates to handle admin tasks—freeing you to lead.",
+        desc: "Committed, full-time professionals who manage your operational workload, allowing you to focus on high-level leadership.",
       },
       developers: {
         title: "Software Developers",
@@ -317,11 +317,11 @@ export default {
     },
     values: {
       title: "Our Values",
-      desc: "We follow our mission to change money-first culture to impact-first, living by values that define who we are.",
+      desc: "Our fundamental principles guide every decision we make, ensuring we build lasting partnerships and deliver exceptional talent.",
       items: {
         impact: {
-          title: "Impact First",
-          desc: "We prioritize mission-driven success, helping companies that want to make a genuine difference in the world.",
+          title: "Value Creation",
+          desc: "We focus on building meaningful relationships with organizations that are actively shaping the future of their industries.",
         },
         transparency: {
           title: "Transparency",
@@ -329,7 +329,7 @@ export default {
         },
         quality: {
           title: "Quality Over Quantity",
-          desc: "We are extremely exclusive. We don't just fill seats; we find the perfect match for unique, high-stakes roles.",
+          desc: "We maintain rigorous standards for every placement. Our focus is on precision matching for critical positions rather than volume recruitment.",
         },
         partnership: {
           title: "Partnership",
@@ -339,11 +339,11 @@ export default {
     },
     join: {
       title: "Join the movement",
-      desc: "We are looking for brilliant minds to join our team. If you are passionate about sustainability, diversity, and impact-first culture, MDIVAN is the place for you.",
+      desc: "We are looking for brilliant minds to join our team. If you are passionate about sustainability, diversity, and a forward-thinking culture, MDIVAN is the place for you.",
       get: "You'll get:",
       perks: [
-        "Work with global impact-driven startups",
-        "Culture of extreme care for personality and talent",
+        "Work with innovative global startups",
+        "Supportive environment that nurtures your professional growth and well-being",
         "Remote-first freedom with team activities",
         "Unlimited vacation and sick leave",
         "Paid co-working space upon request",

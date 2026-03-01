@@ -13,9 +13,9 @@ export default {
   },
   hero: {
     title:
-      "Reclutamiento de Asistentes Ejecutivos y Socios Comerciales de Élite",
+      "Conectando Innovadores de la Industria con Profesionales de Primer Nivel",
     description:
-      "Conectando Líderes Visionarios con Talento de Clase Mundial. Nos especializamos en encontrar los Socios Comerciales y Asistentes Ejecutivos perfectos para ayudarte a escalar tus operaciones e impacto.",
+      "Nos asociamos con organizaciones en crecimiento para encontrar Asistentes Ejecutivos y Socios Comerciales sobresalientes que eleven su productividad.",
     cta: "Encuentra tu Pareja",
     trust: "Con la confianza de empresas con visión de futuro en todo el mundo",
   },
@@ -216,12 +216,12 @@ export default {
   about: {
     missionBadge: "Nuestra Misión",
     missionTitle:
-      "Ayudar a las empresas impulsadas por el impacto a tener más éxito que las impulsadas por el beneficio.",
+      "Empoderar a empresas vanguardistas para escalar de manera eficiente sin límites.",
     missionDesc:
       "Conectamos a líderes visionarios con Socios Comerciales y Asistentes Ejecutivos de élite que liberan a los fundadores para centrarse en la estrategia y el propósito.",
     imageTitle: "Más que solo reclutamiento",
     imageDesc:
-      "Somos una empresa totalmente remota con pasión por encontrar talento brillante para puestos únicos. Nuestro ecosistema está construido para apoyar a fundadores y empresas en cada etapa de crecimiento.",
+      "Somos una organización distribuida dedicada a emparejar profesionales excepcionales con roles especializados. Nuestro ecosistema está construido para apoyar a fundadores y empresas en cada etapa de crecimiento.",
     services: {
       leadership: {
         title: "Reclutamiento de Liderazgo",
@@ -229,7 +229,7 @@ export default {
       },
       associates: {
         title: "Socios Comerciales",
-        desc: "Socios dedicados a tiempo completo para manejar tareas administrativas, liberándote para liderar.",
+        desc: "Profesionales comprometidos a tiempo completo que gestionan su carga operativa, permitiéndole centrarse en el liderazgo de alto nivel.",
       },
       developers: {
         title: "Desarrolladores de Software",
@@ -242,11 +242,11 @@ export default {
     },
     values: {
       title: "Nuestros Valores",
-      desc: "Seguimos nuestra misión de cambiar la cultura de primero el dinero a primero el impacto, viviendo por valores que definen quiénes somos.",
+      desc: "Nuestros principios fundamentales guían cada decisión que tomamos, asegurando que forjemos asociaciones duraderas y entreguemos un talento excepcional.",
       items: {
         impact: {
-          title: "Impacto Primero",
-          desc: "Priorizamos el éxito impulsado por la misión, ayudando a las empresas que quieren hacer una diferencia genuina en el mundo.",
+          title: "Creación de Valor",
+          desc: "Nos enfocamos en construir relaciones significativas con organizaciones que están moldeando activamente el futuro de sus industrias.",
         },
         transparency: {
           title: "Transparencia",
@@ -254,7 +254,7 @@ export default {
         },
         quality: {
           title: "Calidad Sobre Cantidad",
-          desc: "Somos extremadamente exclusivos. No solo llenamos asientos; encontramos la pareja perfecta para roles únicos y de alto riesgo.",
+          desc: "Mantenemos estándares rigurosos para cada colocación. Nos enfocamos en el emparejamiento preciso para posiciones críticas en lugar del reclutamiento por volumen.",
         },
         partnership: {
           title: "Asociación",
@@ -264,11 +264,11 @@ export default {
     },
     join: {
       title: "Únete al movimiento",
-      desc: "Buscamos mentes brillantes para unirse a nuestro equipo. Si te apasiona la sostenibilidad, la diversidad y la cultura de impacto primero, MDIVAN es el lugar para ti.",
+      desc: "Buscamos mentes brillantes para unirse a nuestro equipo. Si te apasiona la sostenibilidad, la diversidad y una cultura vanguardista, MDIVAN es el lugar para ti.",
       get: "Obtendrás:",
       perks: [
-        "Trabaja con startups globales impulsadas por el impacto",
-        "Cultura de cuidado extremo por la personalidad y el talento",
+        "Trabaja con startups globales innovadoras",
+        "Entorno de apoyo que fomenta su crecimiento profesional y bienestar",
         "Libertad remota con actividades de equipo",
         "Vacaciones ilimitadas y licencia por enfermedad",
         "Espacio de co-working pagado bajo solicitud",
