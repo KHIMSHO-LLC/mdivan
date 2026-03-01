@@ -43,6 +43,11 @@ export default {
         description:
           "Aseguran operaciones diarias fluidas, gestión de instalaciones y coordinación de equipos para un entorno de trabajo productivo.",
       },
+      sd: {
+        title: "Desarrolladores de Software",
+        description:
+          "Talento de ingeniería de primer nivel para construir, escalar y mantener su infraestructura técnica.",
+      },
     },
   },
   howItWorks: {
@@ -226,9 +231,9 @@ export default {
         title: "Socios Comerciales",
         desc: "Socios dedicados a tiempo completo para manejar tareas administrativas, liberándote para liderar.",
       },
-      consulting: {
-        title: "Consultoría para el Éxito",
-        desc: "Asesorando sobre la contratación de jugadores A y construyendo culturas fuertes y transparentes.",
+      developers: {
+        title: "Desarrolladores de Software",
+        desc: "Talento de ingeniería de primer nivel para construir, escalar y mantener su infraestructura técnica.",
       },
       network: {
         title: "Red Global",

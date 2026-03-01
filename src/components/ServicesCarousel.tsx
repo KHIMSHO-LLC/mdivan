@@ -33,6 +33,12 @@ export const ServicesCarousel = ({ dict }: { dict: any }) => {
       image:
         "https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=2070&auto=format&fit=crop",
     },
+    {
+      title: dict.services.items.sd.title,
+      description: dict.services.items.sd.description,
+      image:
+        "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2672&auto=format&fit=crop",
+    },
   ];
 
   const getScrollAmount = () => {

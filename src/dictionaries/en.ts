@@ -98,6 +98,25 @@ export default {
             "Find experienced Operations Managers to build and scale your remote infrastructure. Systems, HR, and culture experts.",
         },
       },
+      sd: {
+        slug: "software-developer",
+        title: "Software Developers",
+        description:
+          "Top-tier engineering talent to build, scale, and maintain your technical infrastructure.",
+        fullDescription:
+          "Our Software Developers are highly skilled professionals who build scalable, robust software solutions. We find the top engineering talent to accelerate your technical roadmap and ensure your product thrives.",
+        benefits: [
+          "Full-stack web & mobile development",
+          "System architecture & technical strategy",
+          "API integration & database management",
+          "Performance optimization & bug fixing",
+        ],
+        meta: {
+          title: "Hire Remote Software Developers | MDIVAN",
+          description:
+            "Find elite remote Software Developers. We vet top global talent to accomplish your technical goals.",
+        },
+      },
     },
   },
   howItWorks: {
@@ -287,9 +306,9 @@ export default {
         title: "Business Associates",
         desc: "Full-time, dedicated associates to handle admin tasks—freeing you to lead.",
       },
-      consulting: {
-        title: "Consulting for Success",
-        desc: "Advising on hiring A-players and building strong, transparent cultures.",
+      developers: {
+        title: "Software Developers",
+        desc: "Top-tier engineering talent to build, scale, and maintain your technical infrastructure.",
       },
       network: {
         title: "Global Network",

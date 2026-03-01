@@ -93,8 +93,8 @@ export const AboutBody = ({ dict }: { dict: any }) => {
                     desc: dict.about.services.associates.desc,
                   },
                   {
-                    title: dict.about.services.consulting.title,
-                    desc: dict.about.services.consulting.desc,
+                    title: dict.about.services.developers.title,
+                    desc: dict.about.services.developers.desc,
                   },
                   {
                     title: dict.about.services.network.title,
