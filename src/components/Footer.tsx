@@ -1,123 +1,140 @@
 import Link from "next/link";
-import { Instagram, Linkedin } from "lucide-react";
 import { Locale } from "@/i18n-config";
 import { getDictionary } from "@/get-dictionary";
 
+const CREDITS = [
+  {
+    what: "Georgian manuscript",
+    who: "USEmbassyTbilisi",
+    licence: "public domain",
+    href: "https://commons.wikimedia.org/wiki/File:2005_%E2%80%93_Digitization_of_Georgian_Historical_Documents_of_the_11th_-16th_Centuries_-_14059837972.jpg",
+  },
+  {
+    what: "Gran Vía at night",
+    who: "Javier Perez Montes",
+    licence: "CC BY-SA 4.0",
+    href: "https://commons.wikimedia.org/w/index.php?curid=162586986",
+  },
+  {
+    what: "Gran Vía in snow (film)",
+    who: "Nicolas Vigier",
+    licence: "CC0",
+    href: "https://commons.wikimedia.org/wiki/File:GranVia-nieve-04.webm",
+  },
+  {
+    what: "Gran Vía by day",
+    who: "David Adam Kess",
+    licence: "CC BY-SA 4.0",
+    href: "https://commons.wikimedia.org/w/index.php?curid=34547282",
+  },
+  {
+    what: "Tbilisi, old town",
+    who: "Vyacheslav Argenberg",
+    licence: "CC BY 4.0",
+    href: "https://commons.wikimedia.org/w/index.php?curid=116473136",
+  },
+];
+
 export const Footer = async ({ lang }: { lang: Locale }) => {
   const dict = await getDictionary(lang);
+  const f = dict.home.footer;
 
   return (
-    <footer className="bg-white border-t border-gray-100 pt-16 pb-8">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="grid md:grid-cols-4 gap-12 mb-16">
-          <div className="space-y-4">
-            <Link
-              href={`/${lang}`}
-              className="flex items-center gap-2 font-sans font-bold text-2xl text-[var(--primary)]"
-            >
-              <div className="w-8 h-8 bg-[var(--primary)] rounded-lg flex items-center justify-center text-white">
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-              </div>
-              <span className="font-sans tracking-tight">MDIVAN</span>
-            </Link>
-            <p className="text-gray-500 leading-relaxed">
-              {dict.footer.tagline}
-            </p>
-          </div>
-
-          <div>
-            <h4 className="font-bold text-[var(--primary)] mb-6">
-              {dict.footer.company}
-            </h4>
-            <ul className="space-y-3 text-gray-600">
-              <li>
-                <Link
-                  href={`/${lang}/about`}
-                  className="hover:text-[var(--primary)]"
-                >
-                  {dict.navigation.about}
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-[var(--primary)]">
-                  {dict.navigation.careers}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href={`/${lang}/#contact`}
-                  className="hover:text-[var(--primary)]"
-                >
-                  {dict.navigation.contact}
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-bold text-[var(--primary)] mb-6">
-              {dict.footer.legal}
-            </h4>
-            <ul className="space-y-3 text-gray-600">
-              <li>
-                <Link
-                  href={`/${lang}/privacy-policy`}
-                  className="hover:text-[var(--primary)]"
-                >
-                  {dict.navigation.privacy}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href={`/${lang}/terms-of-service`}
-                  className="hover:text-[var(--primary)]"
-                >
-                  {dict.navigation.terms}
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-bold text-[var(--primary)] mb-6">
-              {dict.footer.location}
-            </h4>
-            <p className="text-gray-600">{dict.footer.address}</p>
-          </div>
-        </div>
-
-        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-100">
-          <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} MDIVAN. {dict.footer.rights}
-          </p>
-          <div className="flex gap-6 mt-4 md:mt-0">
-            <a
-              href="#"
-              className="text-gray-400 hover:text-[var(--primary)] hover:scale-110 transition-all duration-300"
-            >
-              <Instagram className="w-6 h-6" />
+    <footer className="site-footer">
+      <div className="site-footer__cols">
+        <ul>
+          <li>MDIVAN</li>
+          <li>{f.address}</li>
+          <li>
+            <a href="tel:+34694209020" className="num">
+              +34 694 209 020
             </a>
+          </li>
+        </ul>
+        <ul>
+          <li>{f.pages}</li>
+          <li>
+            <Link href={`/${lang}/about`}>{dict.navigation.about}</Link>
+          </li>
+          <li>
+            <Link href={`/${lang}/blog`}>{dict.navigation.blog}</Link>
+          </li>
+          <li>
+            <Link href={`/${lang}/hire-talent`}>{dict.contact.split.companies.cta}</Link>
+          </li>
+          <li>
+            <Link href={`/${lang}/apply`}>{dict.contact.split.candidates.cta}</Link>
+          </li>
+        </ul>
+        <ul>
+          <li>{f.follow}</li>
+          <li>
             <a
-              href="https://www.linkedin.com/company/mdivan/posts/?feedView=all"
+              href="https://www.linkedin.com/company/mdivan/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-[#0A66C2] hover:scale-110 transition-all duration-300"
             >
-              <Linkedin className="w-6 h-6" />
+              LinkedIn
             </a>
-          </div>
-        </div>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/mdivan" target="_blank" rel="noopener noreferrer">
+              Instagram
+            </a>
+          </li>
+        </ul>
+        <ul>
+          <li>{f.write}</li>
+          <li>
+            <a href="mailto:hello@mdivan.com">hello@mdivan.com</a>
+          </li>
+          <li>
+            <Link href={`/${lang}/privacy-policy`}>{dict.navigation.privacy}</Link>
+          </li>
+          <li>
+            <Link href={`/${lang}/terms-of-service`}>{dict.navigation.terms}</Link>
+          </li>
+        </ul>
+      </div>
+
+      <p className="site-footer__credits">
+        {f.credits}:{" "}
+        {CREDITS.map((c, i) => (
+          <span key={c.href}>
+            <a href={c.href} target="_blank" rel="noopener noreferrer">
+              {c.what}
+            </a>{" "}
+            by {c.who}, {c.licence}
+            {i < CREDITS.length - 1 ? " · " : "."}
+          </span>
+        ))}
+      </p>
+
+      <svg
+        className="site-footer__mark"
+        viewBox="0 0 1000 180"
+        role="img"
+        aria-label="MDIVAN"
+        preserveAspectRatio="xMidYMax meet"
+      >
+        <text
+          x="0"
+          y="164"
+          fontSize="226"
+          textLength="1000"
+          lengthAdjust="spacingAndGlyphs"
+        >
+          MDIVAN
+        </text>
+      </svg>
+
+      <div className="site-footer__legal">
+        <span>
+          © {new Date().getFullYear()} MDIVAN. {dict.footer.rights}
+        </span>
+        <span className="ka" lang="ka">
+          მდივანი
+        </span>
       </div>
     </footer>
   );

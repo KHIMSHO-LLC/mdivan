@@ -26,7 +26,7 @@ export default async function ContactPage({
   const dict = await getDictionary(lang as Locale);
 
   return (
-    <main className="min-h-screen pt-20">
+    <main>
       <ContactForm dict={dict} />
     </main>
   );

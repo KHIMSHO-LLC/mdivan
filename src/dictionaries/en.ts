@@ -1,4 +1,119 @@
 export default {
+  home: {
+    hero: {
+      line1: "Your right",
+      line2: "hand, found.",
+      sentence:
+        "Executive assistants and business associates, vetted in Madrid and placed with founders and leaders worldwide.",
+      cta: "Hire talent",
+      secondary: "Looking for work? Apply",
+    },
+    name: {
+      word: "მდივანი",
+      latin: "mdivani",
+      grammar: "noun, Georgian",
+      definition:
+        "Secretary. The one who keeps the record, the calendar and the house in order.",
+      body:
+        "Our name is the Georgian word for secretary. We kept it because it describes the job exactly: the people we place run a calendar, an inbox, an operation or a household, so the person they work for can lead.",
+      caption:
+        "A Georgian document of the 11th–16th centuries, being digitised at the Kekelidze Institute of Manuscripts, Tbilisi.",
+    },
+    roles: {
+      title: "Who we place",
+      business: "For the business",
+      home: "For the home",
+      more: "Read more",
+      tags: {
+        ea: "C-suite",
+        ba: "Startups",
+        om: "Remote teams",
+        sd: "Product",
+        pa: "Private",
+      },
+    },
+    numbers: {
+      title: "Fewer, better candidates",
+      items: [
+        {
+          value: "1%",
+          text: "Every candidate is interviewed and skill-checked before you meet them. We put forward the top one percent.",
+        },
+        {
+          value: "7 days",
+          text: "Average time from the first call to a placement. We respect your urgency.",
+        },
+        {
+          value: "€0",
+          text: "Cost of a replacement if a hire does not work out.",
+        },
+      ],
+    },
+    clock: {
+      title: "Madrid works your morning",
+      madrid: "In Madrid it is",
+      you: "Where you are",
+      compare: "Compare with",
+      yourTime: "My time",
+      overlap: "hours of your working day overlap with Madrid.",
+      overlapOne: "hour of your working day overlaps with Madrid.",
+      noOverlap: "Your working day starts after Madrid's ends: the work is done before you wake up.",
+      body:
+        "Our talent works hours that overlap with US mornings, so you collaborate in real time. The rest of their day is deep work, finished by the time you are back.",
+      fallback:
+        "Madrid is on Central European Time: six hours ahead of New York and nine ahead of San Francisco.",
+      caption: "La Adriática on Gran Vía, Madrid, at night.",
+    },
+    steps: {
+      title: "How it works",
+      items: [
+        {
+          line: "First, we learn how you work.",
+          text: "A discovery call about your company, your culture and the exact role.",
+        },
+        {
+          line: "Then we interview the top 1%.",
+          text: "Rigorous screening, background checks and signed NDAs before anyone reaches you.",
+        },
+        {
+          line: "You meet the shortlist.",
+          text: "Pre-vetted candidates matched to your requirements and your time zone.",
+        },
+        {
+          line: "They start. We stay.",
+          text: "We check in on days 1, 7 and 30, and replace a hire at no cost if it does not work out.",
+        },
+      ],
+    },
+    quote: { next: "Next quote" },
+    film: "Gran Vía, Madrid, under snow, January 2021.",
+    team: {
+      title: "The founders",
+      body:
+        "A small, hands-on team. You work directly with the founders, from the first call to the day your new hire starts, and after.",
+      facts: [
+        { label: "Based in", value: "Madrid, Spain" },
+        { label: "Roles", value: "Assistants, associates, managers, developers" },
+        { label: "Write to", value: "hello@mdivan.com" },
+      ],
+      linkedin: "LinkedIn",
+      caption: "Tbilisi, old town.",
+    },
+    faq: { title: "Questions" },
+    contact: {
+      sentence: "Tell us who you need, or tell us who you are.",
+      hire: "Brief us on a role",
+      apply: "Apply as talent",
+      city: "Madrid, Spain",
+    },
+    footer: {
+      address: "Madrid, Spain",
+      pages: "Pages",
+      follow: "Follow",
+      write: "Write",
+      credits: "Photographs and film",
+    },
+  },
   navigation: {
     services: "Services",
     features: "Features",

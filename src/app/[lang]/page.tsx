@@ -1,11 +1,14 @@
-import { Hero } from "@/components/Hero";
-import { ComparisonSection } from "@/components/ComparisonSection";
-import { ServicesCarousel } from "@/components/ServicesCarousel";
-import { HowItWorks } from "@/components/HowItWorks";
-import { TeamSection } from "@/components/TeamSection";
-import { FAQ } from "@/components/FAQ";
-import { ContactSplitter } from "@/components/ContactSplitter";
-import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { Hero } from "@/components/home/Hero";
+import { NameEntry } from "@/components/home/NameEntry";
+import { Roles } from "@/components/home/Roles";
+import { Numbers } from "@/components/home/Numbers";
+import { Clock } from "@/components/home/Clock";
+import { Steps } from "@/components/home/Steps";
+import { Quote } from "@/components/home/Quote";
+import { Film } from "@/components/home/Film";
+import { Team } from "@/components/home/Team";
+import { Faq } from "@/components/home/Faq";
+import { ContactClose } from "@/components/ContactClose";
 import { getDictionary } from "../../get-dictionary";
 import { Locale } from "../../i18n-config";
 
@@ -59,21 +62,24 @@ export default async function Home({
   };
 
   return (
-    <main className="min-h-screen">
+    <main>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify([faqSchema, serviceSchema]),
         }}
       />
-      <Hero dict={dict} />
-      <ServicesCarousel dict={dict} />
-      <ComparisonSection dict={dict} />
-      <TestimonialsSection dict={dict} />
-      <TeamSection dict={dict} />
-      <HowItWorks dict={dict} />
-      <FAQ dict={dict} />
-      <ContactSplitter dict={dict} lang={lang} />
+      <Hero dict={dict} lang={lang} />
+      <NameEntry dict={dict} />
+      <Roles dict={dict} lang={lang} />
+      <Numbers dict={dict} />
+      <Clock dict={dict} lang={lang} />
+      <Steps dict={dict} />
+      <Quote dict={dict} />
+      <Film dict={dict} />
+      <Team dict={dict} />
+      <Faq dict={dict} />
+      <ContactClose dict={dict} lang={lang} />
     </main>
   );
 }

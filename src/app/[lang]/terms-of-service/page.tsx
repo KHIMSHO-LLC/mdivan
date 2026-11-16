@@ -26,7 +26,7 @@ export default async function TermsOfService({
   const { termsOfService } = dict;
 
   return (
-    <main className="min-h-screen pt-32 pb-24 bg-white">
+    <main className="pb-32">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -50,37 +50,37 @@ export default async function TermsOfService({
           }),
         }}
       />
-      <div className="container mx-auto px-4 md:px-6 max-w-3xl">
-        <h1 className="text-4xl md:text-5xl font-sans font-bold text-[var(--primary)] mb-8">
+      <div className="wrap">
+        <h1 className="page-head" style={{ paddingInline: 0 }}>
           {termsOfService.title}
         </h1>
 
-        <div className="prose prose-lg text-gray-600">
+        <div className="prose-mdivan">
           {termsOfService.intro.map((p: string, i: number) => (
-            <p key={i} className="mb-6">
+            <p key={i}>
               {p}
             </p>
           ))}
 
-          <h2 className="text-2xl font-bold text-[var(--primary)] mt-8 mb-4">
+          <h2>
             {termsOfService.services.title}
           </h2>
           {termsOfService.services.content.map((p: string, i: number) => (
-            <p key={i} className="mb-4">
+            <p key={i}>
               {p}
             </p>
           ))}
 
-          <h2 className="text-2xl font-bold text-[var(--primary)] mt-8 mb-4">
+          <h2>
             {termsOfService.ip.title}
           </h2>
-          <p className="mb-6">{termsOfService.ip.content}</p>
+          <p>{termsOfService.ip.content}</p>
 
-          <h2 className="text-2xl font-bold text-[var(--primary)] mt-8 mb-4">
+          <h2>
             {termsOfService.restrictions.title}
           </h2>
-          <p className="mb-4">{termsOfService.restrictions.desc}</p>
-          <ul className="list-disc pl-6 mb-6 space-y-2">
+          <p>{termsOfService.restrictions.desc}</p>
+          <ul>
             {termsOfService.restrictions.items.map(
               (item: string, i: number) => (
                 <li key={i}>{item}</li>
@@ -88,25 +88,25 @@ export default async function TermsOfService({
             )}
           </ul>
 
-          <h2 className="text-2xl font-bold text-[var(--primary)] mt-8 mb-4">
+          <h2>
             {termsOfService.clientResp.title}
           </h2>
-          <p className="mb-6">{termsOfService.clientResp.content}</p>
+          <p>{termsOfService.clientResp.content}</p>
 
-          <h2 className="text-2xl font-bold text-[var(--primary)] mt-8 mb-4">
+          <h2>
             {termsOfService.liability.title}
           </h2>
-          <p className="mb-6">{termsOfService.liability.content}</p>
+          <p>{termsOfService.liability.content}</p>
 
-          <h2 className="text-2xl font-bold text-[var(--primary)] mt-8 mb-4">
+          <h2>
             {termsOfService.indemnification.title}
           </h2>
-          <p className="mb-6">{termsOfService.indemnification.content}</p>
+          <p>{termsOfService.indemnification.content}</p>
 
-          <h2 className="text-2xl font-bold text-[var(--primary)] mt-8 mb-4">
+          <h2>
             {termsOfService.governing.title}
           </h2>
-          <p className="mb-6">{termsOfService.governing.content}</p>
+          <p>{termsOfService.governing.content}</p>
         </div>
       </div>
     </main>

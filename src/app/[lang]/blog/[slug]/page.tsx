@@ -3,9 +3,8 @@ import { Locale } from "../../../../i18n-config";
 import { blogPosts } from "@/lib/blog-data";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import { ContactSplitter } from "@/components/ContactSplitter";
-import Link from "next/link";
-import { ArrowLeft, Calendar, Clock } from "lucide-react";
+import { ContactClose } from "@/components/ContactClose";
+import { PageHead } from "@/components/PageHead";
 
 type Props = {
   params: Promise<{ lang: string; slug: string }>;
@@ -70,64 +69,25 @@ export default async function BlogPostPage({ params }: Props) {
   };
 
   return (
-    <main className="min-h-screen pt-32 pb-20">
+    <main>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-
-      <div className="container mx-auto px-4 max-w-3xl">
-        <Link
-          href={`/${lang}/blog`}
-          className="inline-flex items-center text-gray-500 hover:text-[var(--primary)] transition-colors mb-12"
-        >
-          <ArrowLeft className="w-4 h-4 mr-2" />
-          {lang === "es" ? "Volver al Blog" : "Back to Blog"}
-        </Link>
-
-        {/* Header */}
-        <header className="mb-12">
-          <div className="flex items-center gap-6 text-sm text-gray-500 mb-6">
-            <span className="flex items-center gap-2">
-              <Calendar className="w-4 h-4" />
-              {post.date}
-            </span>
-            <span className="flex items-center gap-2">
-              <Clock className="w-4 h-4" />
-              {post.readTime}
-            </span>
-          </div>
-          <h1 className="text-3xl md:text-5xl font-bold text-[var(--primary)] mb-8 leading-tight">
-            {post.title[locale]}
-          </h1>
-
-          <div className="flex items-center gap-4 bg-gray-50 p-4 rounded-xl border border-gray-100 w-fit">
-            <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-200">
-              <img
-                src={post.author.image}
-                alt={post.author.name}
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div>
-              <div className="font-bold text-[var(--primary)]">
-                {post.author.name}
-              </div>
-              <div className="text-sm text-gray-500">{post.author.role}</div>
-            </div>
-          </div>
-        </header>
-
-        {/* Content */}
-        <article
-          className="prose prose-lg max-w-none prose-headings:text-[var(--primary)] prose-a:text-blue-600 prose-img:rounded-xl text-gray-700"
-          dangerouslySetInnerHTML={{ __html: post.content[locale] }}
-        />
-
-        <hr className="my-16 border-gray-100" />
+      <PageHead
+        title={post.title[locale]}
+        back={{ href: `/${lang}/blog`, label: lang === "es" ? "Volver al blog" : "Back to the blog" }}
+      />
+      <div className="post-meta wrap">
+        <span>{post.author.name}</span>
+        <span className="num">{post.date}</span>
+        <span>{post.readTime}</span>
       </div>
-
-      <ContactSplitter dict={dict} lang={lang as Locale} />
+      <article
+        className="prose-mdivan wrap post-body"
+        dangerouslySetInnerHTML={{ __html: post.content[locale] }}
+      />
+      <ContactClose dict={dict} lang={lang} />
     </main>
   );
 }

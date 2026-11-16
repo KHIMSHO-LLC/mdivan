@@ -12,7 +12,7 @@ export default async function ApplyPage({
   const dict = await getDictionary(lang as Locale);
 
   return (
-    <main className="min-h-screen pt-20">
+    <main>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

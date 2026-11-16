@@ -1,19 +1,17 @@
 import type { Metadata } from "next";
-import { Inter, Geist_Mono } from "next/font/google";
+import { Noto_Serif_Georgian } from "next/font/google";
 import "../globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { RevealObserver } from "@/components/RevealObserver";
 import { i18n, type Locale } from "../../i18n-config";
 import { getDictionary } from "../../get-dictionary";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+// Only used for the Georgian word "მდივანი"; everything else is set in Erode.
+const georgian = Noto_Serif_Georgian({
+  variable: "--font-georgian",
+  subsets: ["georgian"],
+  weight: ["500"],
 });
 
 export async function generateMetadata({
@@ -121,8 +119,19 @@ export default async function RootLayout({
   };
 
   return (
-    <html lang={lang} className="scroll-smooth">
+    <html lang={lang} className={georgian.variable} suppressHydrationWarning>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.classList.add('js')",
+          }}
+        />
+        <link rel="preconnect" href="https://api.fontshare.com" />
+        <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="" />
+        <link
+          rel="stylesheet"
+          href="https://api.fontshare.com/v2/css?f[]=erode@400,500,600&f[]=erode@400i&display=swap"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -130,10 +139,11 @@ export default async function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.variable} ${geistMono.variable} antialiased`}>
+      <body>
         <Header lang={lang as Locale} />
         {children}
         <Footer lang={lang as Locale} />
+        <RevealObserver />
       </body>
     </html>
   );

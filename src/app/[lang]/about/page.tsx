@@ -36,7 +36,7 @@ export default async function AboutPage({
           }),
         }}
       />
-      <AboutBody dict={dict} />
+      <AboutBody dict={dict} lang={lang} />
     </>
   );
 }

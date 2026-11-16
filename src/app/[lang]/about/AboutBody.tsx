@@ -1,223 +1,99 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Image from "next/image";
-import { Check, Heart, Globe, Zap, Users, Shield } from "lucide-react";
+import { PageHead } from "@/components/PageHead";
+import { ContactClose } from "@/components/ContactClose";
+import { Film } from "@/components/home/Film";
+import tbilisi from "../../../../public/media/tbilisi.jpg";
+import manuscript from "../../../../public/media/georgian-manuscript.jpg";
+import granVia from "../../../../public/media/gran-via-day.jpg";
 
-export const AboutBody = ({ dict }: { dict: any }) => {
-  const values = [
-    {
-      icon: Heart,
-      title: dict.about.values.items.impact.title,
-      description: dict.about.values.items.impact.desc,
-    },
-    {
-      icon: Shield,
-      title: dict.about.values.items.transparency.title,
-      description: dict.about.values.items.transparency.desc,
-    },
-    {
-      icon: Zap,
-      title: dict.about.values.items.quality.title,
-      description: dict.about.values.items.quality.desc,
-    },
-    {
-      icon: Users,
-      title: dict.about.values.items.partnership.title,
-      description: dict.about.values.items.partnership.desc,
-    },
-  ];
+export const AboutBody = ({ dict, lang }: { dict: any; lang: string }) => {
+  const a = dict.about;
+  const services = ["leadership", "associates", "developers", "network"].map((k) => a.services[k]);
+  const values = ["impact", "transparency", "quality", "partnership"].map((k) => a.values.items[k]);
 
   return (
-    <main className="bg-white">
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-[var(--primary)] text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
-        <div className="container mx-auto px-4 md:px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto text-center"
-          >
-            <span className="inline-block py-1 px-3 rounded-full bg-white/10 text-white/90 text-sm font-medium mb-6">
-              {dict.about.missionBadge}
-            </span>
-            <h1 className="text-4xl md:text-6xl font-sans font-bold mb-8 leading-tight">
-              {dict.about.missionTitle}
-            </h1>
-            <p className="text-xl text-white/80 leading-relaxed max-w-2xl mx-auto">
-              {dict.about.missionDesc}
-            </p>
-          </motion.div>
-        </div>
-      </section>
+    <main>
+      <PageHead
+        title={dict.navigation.about}
+        lead={a.missionTitle}
+        action={{ href: `/${lang}/hire-talent`, label: dict.home.hero.cta }}
+      />
 
-      {/* What We Do */}
-      <section className="py-24">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative h-[600px] rounded-3xl overflow-hidden shadow-2xl"
-            >
-              <Image
-                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2671&auto=format&fit=crop"
-                alt="MDIVAN Team"
-                fill
-                className="object-cover"
-              />
-            </motion.div>
-
-            <div className="space-y-12">
-              <div>
-                <h2 className="text-4xl font-sans font-bold text-[var(--primary)] mb-6">
-                  {dict.about.imageTitle}
-                </h2>
-                <p className="text-gray-600 text-lg leading-relaxed">
-                  {dict.about.imageDesc}
-                </p>
-              </div>
-
-              <div className="space-y-6">
-                {[
-                  {
-                    title: dict.about.services.leadership.title,
-                    desc: dict.about.services.leadership.desc,
-                  },
-                  {
-                    title: dict.about.services.associates.title,
-                    desc: dict.about.services.associates.desc,
-                  },
-                  {
-                    title: dict.about.services.developers.title,
-                    desc: dict.about.services.developers.desc,
-                  },
-                  {
-                    title: dict.about.services.network.title,
-                    desc: dict.about.services.network.desc,
-                  },
-                ].map((item, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1 }}
-                    className="flex gap-4"
-                  >
-                    <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center shrink-0 mt-1">
-                      <Check className="w-4 h-4 text-green-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-[var(--primary)]">
-                        {item.title}
-                      </h3>
-                      <p className="text-gray-600">{item.desc}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Values */}
-      <section className="py-24 bg-gray-50">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-4xl font-sans font-bold text-[var(--primary)] mb-6">
-              {dict.about.values.title}
-            </h2>
-            <p className="text-gray-600 text-lg">{dict.about.values.desc}</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((val, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow"
-              >
-                <div className="w-12 h-12 rounded-xl bg-[var(--primary)]/5 flex items-center justify-center text-[var(--primary)] mb-6">
-                  <val.icon className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-bold text-[var(--primary)] mb-3">
-                  {val.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {val.description}
-                </p>
-              </motion.div>
+      <section className="about-what">
+        <figure className="reveal">
+          <Image
+            src={granVia}
+            alt="Ornate early-20th-century buildings along Gran Vía, Madrid, in black and white"
+            sizes="(min-width: 800px) 40vw, 100vw"
+          />
+        </figure>
+        <div className="about-what__text">
+          <h2 className="reveal">{a.imageTitle}</h2>
+          <p className="reveal" style={{ ["--d" as any]: 1 }}>
+            {a.imageDesc}
+          </p>
+          <ul className="about-list">
+            {services.map((s: any, i: number) => (
+              <li key={s.title} className="reveal" style={{ ["--d" as any]: i + 2 }}>
+                <h3>{s.title}</h3>
+                <p>{s.desc}</p>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
-      {/* Join Team */}
-      <section className="py-24">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="bg-[var(--primary)] rounded-[3rem] p-8 md:p-16 relative overflow-hidden text-white">
-            <div className="absolute top-0 right-0 w-full h-full bg-white/5 opacity-50 pointer-events-none"></div>
-
-            <div className="grid lg:grid-cols-2 gap-16 relative z-10">
-              <div>
-                <h2 className="text-4xl md:text-5xl font-sans font-bold mb-6">
-                  {dict.about.join.title}
-                </h2>
-                <p className="text-white/80 text-lg mb-8 leading-relaxed">
-                  {dict.about.join.desc}
-                </p>
-
-                <h3 className="text-xl font-bold mb-6">
-                  {dict.about.join.get}
-                </h3>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  {dict.about.join.perks.map((perk: string, i: number) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <div className="w-2 h-2 rounded-full bg-green-400"></div>
-                      <span className="text-white/90 text-sm md:text-base">
-                        {perk}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-10">
-                  <p className="mb-4 text-white/70">
-                    {dict.about.join.referral}
-                  </p>
-                  <a
-                    href="mailto:hello@mdivan.com"
-                    className="inline-flex items-center gap-2 bg-white text-[var(--primary)] px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition-colors"
-                  >
-                    {dict.about.join.cta}
-                  </a>
-                </div>
-              </div>
-
-              <div className="relative hidden lg:block">
-                <div className="absolute inset-0 bg-gradient-to-l from-[var(--primary)] to-transparent z-10"></div>
-                <div className="h-full w-full rounded-2xl overflow-hidden relative">
-                  <Image
-                    src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2070&auto=format&fit=crop"
-                    alt="Team Culture"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              </div>
+      <section className="values">
+        <h2 className="reveal">{a.values.title}</h2>
+        <p className="reveal" style={{ ["--d" as any]: 1 }}>
+          {a.values.desc}
+        </p>
+        <div className="values__grid">
+          {values.map((v: any, i: number) => (
+            <div key={v.title} className="reveal" style={{ ["--d" as any]: i % 2 }}>
+              <h3>{v.title}</h3>
+              <p>{v.desc}</p>
             </div>
-          </div>
+          ))}
+        </div>
+        <div className="values__pics">
+          <figure className="reveal">
+            <Image src={manuscript} alt="A long handwritten Georgian document on aged parchment" sizes="(min-width: 800px) 30vw, 50vw" />
+            <figcaption className="caption">{dict.home.name.caption}</figcaption>
+          </figure>
+          <figure className="reveal" style={{ ["--d" as any]: 1 }}>
+            <Image src={tbilisi} alt="A cobbled street in Tbilisi's old town with a brick church tower" sizes="(min-width: 800px) 40vw, 50vw" />
+            <figcaption className="caption">{dict.home.team.caption}</figcaption>
+          </figure>
         </div>
       </section>
+
+      <Film dict={dict} />
+
+      <section className="join">
+        <div className="join__text">
+          <h2 className="reveal">{a.join.title}</h2>
+          <p className="reveal" style={{ ["--d" as any]: 1 }}>
+            {a.join.desc}
+          </p>
+          <p className="join__refer reveal" style={{ ["--d" as any]: 2 }}>
+            {a.join.referral}
+          </p>
+          <a href="mailto:hello@mdivan.com" className="btn btn--paper mt-4 reveal" style={{ ["--d" as any]: 3 }}>
+            {a.join.cta} <span className="arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+        <div className="join__perks reveal" style={{ ["--d" as any]: 1 }}>
+          <h3>{a.join.get}</h3>
+          <ul>
+            {a.join.perks.map((p: string) => (
+              <li key={p}>{p}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <ContactClose dict={dict} lang={lang} />
     </main>
   );
 };

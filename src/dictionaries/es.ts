@@ -1,4 +1,119 @@
 export default {
+  home: {
+    hero: {
+      line1: "Tu mano",
+      line2: "derecha.",
+      sentence:
+        "Asistentes ejecutivos y business associates, seleccionados en Madrid para fundadores y directivos de todo el mundo.",
+      cta: "Contratar talento",
+      secondary: "¿Buscas trabajo? Postúlate",
+    },
+    name: {
+      word: "მდივანი",
+      latin: "mdivani",
+      grammar: "sustantivo, georgiano",
+      definition:
+        "Secretario. Quien lleva el registro, la agenda y la casa en orden.",
+      body:
+        "Nuestro nombre es la palabra georgiana para secretario. Lo mantuvimos porque describe el trabajo con exactitud: las personas que colocamos llevan una agenda, un correo, una operación o una casa, para que la persona con la que trabajan pueda liderar.",
+      caption:
+        "Documento georgiano de los siglos XI–XVI, durante su digitalización en el Instituto de Manuscritos Kekelidze, Tiflis.",
+    },
+    roles: {
+      title: "A quién colocamos",
+      business: "Para la empresa",
+      home: "Para el hogar",
+      more: "Ver más",
+      tags: {
+        ea: "Alta dirección",
+        ba: "Startups",
+        om: "Equipos remotos",
+        sd: "Producto",
+        pa: "Privado",
+      },
+    },
+    numbers: {
+      title: "Menos candidatos, mejores",
+      items: [
+        {
+          value: "1%",
+          text: "Entrevistamos y evaluamos a cada candidato antes de que lo conozcas. Presentamos solo al uno por ciento mejor.",
+        },
+        {
+          value: "7 días",
+          text: "Tiempo medio desde la primera llamada hasta la incorporación. Respetamos tu urgencia.",
+        },
+        {
+          value: "0 €",
+          text: "Coste de un reemplazo si una contratación no funciona.",
+        },
+      ],
+    },
+    clock: {
+      title: "Madrid trabaja tu mañana",
+      madrid: "En Madrid son las",
+      you: "Donde estás",
+      compare: "Comparar con",
+      yourTime: "Mi hora",
+      overlap: "horas de tu jornada coinciden con Madrid.",
+      overlapOne: "hora de tu jornada coincide con Madrid.",
+      noOverlap: "Tu jornada empieza cuando termina la de Madrid: el trabajo está hecho antes de que despiertes.",
+      body:
+        "Nuestro talento trabaja en horarios que coinciden con las mañanas de EE. UU., para colaborar en tiempo real. El resto del día es trabajo concentrado, terminado cuando vuelves.",
+      fallback:
+        "Madrid está en la hora de Europa Central: seis horas por delante de Nueva York y nueve de San Francisco.",
+      caption: "La Adriática en la Gran Vía de Madrid, de noche.",
+    },
+    steps: {
+      title: "Cómo funciona",
+      items: [
+        {
+          line: "Primero, entendemos cómo trabajas.",
+          text: "Una llamada sobre tu empresa, tu cultura y el puesto exacto.",
+        },
+        {
+          line: "Luego entrevistamos al 1%.",
+          text: "Selección rigurosa, verificación de antecedentes y NDA firmados antes de que nadie llegue a ti.",
+        },
+        {
+          line: "Conoces la terna final.",
+          text: "Candidatos evaluados, ajustados a tus requisitos y a tu zona horaria.",
+        },
+        {
+          line: "Empiezan. Seguimos.",
+          text: "Hacemos seguimiento los días 1, 7 y 30, y reemplazamos sin coste si no funciona.",
+        },
+      ],
+    },
+    quote: { next: "Siguiente cita" },
+    film: "La Gran Vía de Madrid nevada, enero de 2021.",
+    team: {
+      title: "Los fundadores",
+      body:
+        "Un equipo pequeño y cercano. Trabajas directamente con los fundadores, desde la primera llamada hasta el día en que empieza tu nueva contratación, y después.",
+      facts: [
+        { label: "Con sede en", value: "Madrid, España" },
+        { label: "Perfiles", value: "Asistentes, associates, managers, desarrolladores" },
+        { label: "Escríbenos", value: "hello@mdivan.com" },
+      ],
+      linkedin: "LinkedIn",
+      caption: "Tiflis, casco antiguo.",
+    },
+    faq: { title: "Preguntas" },
+    contact: {
+      sentence: "Cuéntanos a quién necesitas, o quién eres.",
+      hire: "Describe un puesto",
+      apply: "Postúlate",
+      city: "Madrid, España",
+    },
+    footer: {
+      address: "Madrid, España",
+      pages: "Páginas",
+      follow: "Síguenos",
+      write: "Escríbenos",
+      credits: "Fotografías y vídeo",
+    },
+  },
   navigation: {
     services: "Servicios",
     features: "Características",
@@ -24,26 +139,31 @@ export default {
     heading: "Talento confiable para impulsar tu negocio",
     items: {
       ea: {
+        slug: "executive-assistant",
         title: "Asistentes Ejecutivos",
         description:
           "Apoyo de alto nivel para ejecutivos C-suite, gestionando agendas, viajes y comunicaciones confidenciales con precisión.",
       },
       ba: {
+        slug: "business-associate",
         title: "Socios Comerciales",
         description:
           "Profesionales versátiles capaces de manejar operaciones, coordinación de proyectos y relaciones con clientes para impulsar la eficiencia empresarial.",
       },
       pa: {
+        slug: "personal-assistant",
         title: "Asistentes Personales",
         description:
           "Apoyo dedicado para la gestión diaria, asegurando vidas personales y profesionales organizadas y libres de estrés.",
       },
       om: {
+        slug: "operations-manager",
         title: "Gerentes",
         description:
           "Aseguran operaciones diarias fluidas, gestión de instalaciones y coordinación de equipos para un entorno de trabajo productivo.",
       },
       sd: {
+        slug: "software-developer",
         title: "Desarrolladores de Software",
         description:
           "Talento de ingeniería de primer nivel para construir, escalar y mantener su infraestructura técnica.",
