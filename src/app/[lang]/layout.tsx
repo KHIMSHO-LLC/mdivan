@@ -91,13 +91,6 @@ export default async function RootLayout({
         jobTitle: "CEO & Founder",
         sameAs: "https://www.linkedin.com/in/nia-tcholadze-55aba6269/",
       },
-      {
-        "@type": "Person",
-        name: "Lile Gvenetadze",
-        image: "https://mdivan.com/lile.jpg",
-        jobTitle: "Operations Manager & Co-founder",
-        sameAs: "https://www.linkedin.com/in/lile-gvenetadze-353552286/",
-      },
     ],
     potentialAction: {
       "@type": "SearchAction",

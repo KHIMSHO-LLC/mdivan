@@ -143,16 +143,13 @@ export default {
   team: {
     badge: "Our Team",
     title: "Meet the experts behind your success",
+    description:
+      "A small, hands-on team. You work directly with the founders, from the first call to the day your new hire starts.",
     members: {
       nia: {
         name: "Nia Tcholadze",
         role: "CEO & Founder",
         linkedin: "https://www.linkedin.com/in/nia-tcholadze-55aba6269/",
-      },
-      lile: {
-        name: "Lile Gvenetadze",
-        role: "Operations Manager & Co-founder",
-        linkedin: "https://www.linkedin.com/in/lile-gvenetadze-353552286/",
       },
       giorgi: {
         name: "Giorgi Khimshiashvili",

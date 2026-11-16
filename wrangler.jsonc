@@ -1,0 +1,27 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "mdivan",
+  "main": "custom-worker.ts",
+  "compatibility_date": "2026-11-01",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "mdivan"
+    }
+  ],
+  "images": {
+    "binding": "IMAGES"
+  },
+  // Same schedule as the old vercel.json: blog post Mon 08:00 UTC and Wed 00:00 UTC
+  "triggers": {
+    "crons": ["0 8 * * 1", "0 0 * * 3"]
+  },
+  "observability": {
+    "enabled": true
+  }
+}

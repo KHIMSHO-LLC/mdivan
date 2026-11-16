@@ -86,9 +86,9 @@ export const blogPosts: BlogPost[] = [
     date: "January 10, 2026",
     readTime: "4 min read",
     author: {
-      name: "Lile Gvenetadze",
-      role: "Operations Manager",
-      image: "/lile.jpg",
+      name: "MDIVAN Insights",
+      role: "Future of Work Experts",
+      image: "/icon.png",
     },
     content: {
       en: `
