@@ -1,37 +1,38 @@
-import { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
+import { blogPosts } from "@/lib/blog-data";
+import { SITE_URL } from "@/lib/site";
+
+const PAGES: { path: string; priority: number; freq: "weekly" | "monthly" | "yearly" }[] = [
+  { path: "", priority: 1, freq: "weekly" },
+  { path: "/hire-talent", priority: 0.9, freq: "monthly" },
+  { path: "/about", priority: 0.7, freq: "monthly" },
+  { path: "/services/executive-assistant", priority: 0.7, freq: "monthly" },
+  { path: "/services/business-associate", priority: 0.7, freq: "monthly" },
+  { path: "/services/personal-assistant", priority: 0.7, freq: "monthly" },
+  { path: "/services/operations-manager", priority: 0.7, freq: "monthly" },
+  { path: "/services/software-developer", priority: 0.7, freq: "monthly" },
+  { path: "/apply", priority: 0.8, freq: "monthly" },
+  { path: "/blog", priority: 0.6, freq: "weekly" },
+  { path: "/contact", priority: 0.5, freq: "yearly" },
+  { path: "/privacy-policy", priority: 0.2, freq: "yearly" },
+  { path: "/terms-of-service", priority: 0.2, freq: "yearly" },
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://mdivan.com";
-  const languages = ["en", "es"];
-  const pages = [
-    "",
-    "about",
-    "contact",
-    "privacy-policy",
-    "terms-of-service",
-    "apply",
-    "hire-talent",
-    "services/executive-assistant",
-    "services/business-associate",
-    "services/personal-assistant",
-    "services/operations-manager",
-    "blog",
-    "blog/why-you-need-business-associate",
-    "blog/hiring-remote-talent-europe",
+  const slugs = Array.from(new Set(blogPosts.map((p) => p.slug)));
+  const all = [
+    ...PAGES,
+    ...slugs.map((s) => ({ path: `/blog/${s}`, priority: 0.5, freq: "yearly" as const })),
   ];
-
-  const sitemap: MetadataRoute.Sitemap = [];
-
-  languages.forEach((lang) => {
-    pages.forEach((page) => {
-      sitemap.push({
-        url: `${baseUrl}/${lang}${page ? `/${page}` : ""}`,
-        lastModified: new Date(),
-        changeFrequency: "monthly",
-        priority: page === "" ? 1 : 0.8,
-      });
-    });
-  });
-
-  return sitemap;
+  return all.flatMap(({ path, priority, freq }) =>
+    (["en", "es"] as const).map((lang) => ({
+      url: `${SITE_URL}/${lang}${path}`,
+      lastModified: new Date(),
+      changeFrequency: freq,
+      priority,
+      alternates: {
+        languages: { en: `${SITE_URL}/en${path}`, es: `${SITE_URL}/es${path}`, "x-default": `${SITE_URL}/es${path}` },
+      },
+    }))
+  );
 }

@@ -34,7 +34,8 @@ export function middleware(request: NextRequest) {
       "/icon.png",
       "/robots.txt",
       "/sitemap.xml",
-      "/opengraph-image",
+      "/og/en.png",
+      "/og/es.png",
     ].includes(pathname)
   )
     return;
@@ -62,6 +63,6 @@ export function middleware(request: NextRequest) {
 export const config = {
   // Matcher ignoring `/_next/` and `/api/`
   matcher: [
-    "/((?!api|_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
+    "/((?!api|_next/static|_next/image|media/|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|webm|mp4|woff2?|json)$).*)",
   ],
 };

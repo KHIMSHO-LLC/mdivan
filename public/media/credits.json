@@ -1,0 +1,50 @@
+[
+  {
+    "file": "public/media/gran-via-day.jpg",
+    "media": "image",
+    "ref": "openverse:1b8bb292-68c2-4a04-b8c5-54d8a3f1155f",
+    "title": "A Black and white photograph of a buildings at Gran Via, Madrid Spain 019",
+    "creator": "David Adam Kess",
+    "creatorUrl": "https://commons.wikimedia.org/wiki/User:David_Adam_Kess",
+    "date": null,
+    "license": "CC BY-SA 4.0",
+    "licenseCode": "by-sa",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "creditRequired": true,
+    "page": "https://commons.wikimedia.org/w/index.php?curid=34547282",
+    "via": "Wikimedia Commons",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/A_Black_and_white_photograph_of_a_buildings_at_Gran_Via%2C_Madrid_Spain_019.JPG/1920px-A_Black_and_white_photograph_of_a_buildings_at_Gran_Via%2C_Madrid_Spain_019.JPG",
+    "width": 1920,
+    "height": 2560,
+    "bytes": 996039,
+    "credit": "\"A Black and white photograph of a buildings at Gran Via, Madrid Spain 019\" by David Adam Kess, CC BY-SA 4.0, via Wikimedia Commons",
+    "notes": [
+      "Share-alike: an altered version (recoloured, combined with other pictures) must be shared under the same licence."
+    ],
+    "saved": "2026-11-16T22:37:03.413Z"
+  },
+  {
+    "file": "public/media/gran-via-night.jpg",
+    "media": "image",
+    "ref": "openverse:76715d95-6c5c-46ec-b782-0929c1965b30",
+    "title": "La Adriática - Gran Via - Madrid 01",
+    "creator": "Javier Perez Montes",
+    "creatorUrl": "https://commons.wikimedia.org/wiki/User:Nerve_net",
+    "date": null,
+    "license": "CC BY-SA 4.0",
+    "licenseCode": "by-sa",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "creditRequired": true,
+    "page": "https://commons.wikimedia.org/w/index.php?curid=162586986",
+    "via": "Wikimedia Commons",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/La_Adri%C3%A1tica_-_Gran_Via_-_Madrid_01.jpg/1920px-La_Adri%C3%A1tica_-_Gran_Via_-_Madrid_01.jpg",
+    "width": 1920,
+    "height": 1920,
+    "bytes": 868491,
+    "credit": "\"La Adriática - Gran Via - Madrid 01\" by Javier Perez Montes, CC BY-SA 4.0, via Wikimedia Commons",
+    "notes": [
+      "Share-alike: an altered version (recoloured, combined with other pictures) must be shared under the same licence."
+    ],
+    "saved": "2026-11-16T22:37:05.413Z"
+  }
+]
