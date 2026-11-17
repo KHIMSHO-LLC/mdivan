@@ -1,54 +1,30 @@
-import type { Metadata } from "next";
-import { Inter, Geist_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Inter, Newsreader, Schibsted_Grotesk, Space_Mono } from "next/font/google";
 import "../globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { RevealObserver } from "@/components/RevealObserver";
 import { i18n, type Locale } from "../../i18n-config";
 import { getDictionary } from "../../get-dictionary";
+import { pageMeta, JsonLd } from "@/lib/seo";
+import { EMAIL, INSTAGRAM, LINKEDIN, PHONE, SITE_URL } from "@/lib/site";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
+// next/font downloads these at build time and serves them from our own domain.
+// The "latin" subset covers Spanish (á, é, ñ, ¿, ¡).
+const display = Schibsted_Grotesk({ variable: "--font-display", subsets: ["latin"], weight: ["600", "700"], display: "swap" });
+const sans = Inter({ variable: "--font-sans", subsets: ["latin"], display: "swap" });
+const mono = Space_Mono({ variable: "--font-mono", subsets: ["latin"], weight: "400", display: "swap", preload: false });
+const serif = Newsreader({ variable: "--font-serif", subsets: ["latin"], weight: "400", display: "swap", preload: false });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+export const viewport: Viewport = { themeColor: "#071d39" };
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ lang: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params;
   const dict = await getDictionary(lang as Locale);
-
   return {
-    metadataBase: new URL("https://mdivan.com"),
-    title: dict.meta.title,
-    description: dict.meta.description,
+    metadataBase: new URL(SITE_URL),
     keywords: dict.meta.keywords,
-    alternates: {
-      canonical: `/${lang}`,
-      languages: {
-        en: "/en",
-        es: "/es",
-      },
-    },
-    openGraph: {
-      title: dict.meta.title,
-      description: dict.meta.description,
-      url: `https://mdivan.com/${lang}`,
-      siteName: "MDIVAN",
-      locale: lang === "en" ? "en_US" : "es_ES",
-      type: "website",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: dict.meta.title,
-      description: dict.meta.description,
-    },
+    ...pageMeta({ lang, title: dict.meta.title, description: dict.meta.description }),
   };
 }
 
@@ -59,81 +35,40 @@ export async function generateStaticParams() {
 export default async function RootLayout({
   children,
   params,
-}: Readonly<{
-  children: React.ReactNode;
-  params: Promise<{ lang: string }>;
-}>) {
+}: Readonly<{ children: React.ReactNode; params: Promise<{ lang: string }> }>) {
   const { lang } = await params;
   const dict = await getDictionary(lang as Locale);
+  const m = dict.team.members;
 
-  const jsonLd = {
+  const organization = {
     "@context": "https://schema.org",
     "@type": "RecruitmentAgency",
+    "@id": `${SITE_URL}/#organization`,
     name: "MDIVAN",
+    url: SITE_URL,
+    logo: `${SITE_URL}/icon.png`,
     description: dict.meta.description,
-    url: "https://mdivan.com",
-    logo: "https://mdivan.com/icon.png",
-    priceRange: "$$$",
-    areaServed: {
-      "@type": "City",
-      name: "Madrid",
-      address: {
-        "@type": "PostalAddress",
-        addressCountry: "ES",
-        addressLocality: "Madrid",
-      },
-    },
+    email: EMAIL,
+    telephone: PHONE.replace(/\s/g, ""),
+    address: { "@type": "PostalAddress", addressLocality: "Madrid", addressCountry: "ES" },
     founder: [
-      {
-        "@type": "Person",
-        name: "Nia Tcholadze",
-        image: "https://mdivan.com/nia.jpg",
-        jobTitle: "CEO & Founder",
-        sameAs: "https://www.linkedin.com/in/nia-tcholadze-55aba6269/",
-      },
+      { "@type": "Person", name: m.nia.name, jobTitle: m.nia.role, image: `${SITE_URL}/nia.jpg`, sameAs: m.nia.linkedin },
+      { "@type": "Person", name: m.giorgi.name, jobTitle: m.giorgi.role, image: `${SITE_URL}/george.png`, sameAs: m.giorgi.linkedin },
     ],
-    potentialAction: {
-      "@type": "SearchAction",
-      target: "https://mdivan.com/?q={search_term_string}",
-      "query-input": "required name=search_term_string",
-    },
-    address: {
-      "@type": "PostalAddress",
-      addressCountry: "ES",
-      addressLocality: "Madrid",
-    },
-    sameAs: [
-      "https://www.linkedin.com/company/mdivan",
-      "https://www.instagram.com/mdivan",
-    ],
-  };
-
-  const websiteJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "MDIVAN",
-    url: "https://mdivan.com",
-    potentialAction: {
-      "@type": "SearchAction",
-      target: "https://mdivan.com/?q={search_term_string}",
-      "query-input": "required name=search_term_string",
-    },
+    sameAs: [LINKEDIN, INSTAGRAM],
   };
 
   return (
-    <html lang={lang} className="scroll-smooth">
+    <html lang={lang} className={`${display.variable} ${sans.variable} ${mono.variable} ${serif.variable}`} suppressHydrationWarning>
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify([jsonLd, websiteJsonLd]),
-          }}
-        />
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+        <JsonLd data={organization} />
       </head>
-      <body className={`${inter.variable} ${geistMono.variable} antialiased`}>
+      <body>
         <Header lang={lang as Locale} />
-        {children}
+        <main id="main">{children}</main>
         <Footer lang={lang as Locale} />
+        <RevealObserver />
       </body>
     </html>
   );

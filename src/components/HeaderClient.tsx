@@ -1,167 +1,117 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Menu, X } from "lucide-react";
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Locale } from "@/i18n-config";
+import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
+import type { Locale } from "@/i18n-config";
+import { EMAIL, LINKEDIN, INSTAGRAM, to } from "@/lib/site";
 
 export const HeaderClient = ({ lang, dict }: { lang: Locale; dict: any }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const n = dict.navigation;
+  const u = dict.ui;
+  const [open, setOpen] = useState(false);
+  const pathname = usePathname() ?? `/${lang}`;
+  const btnRef = useRef<HTMLButtonElement>(null);
+  const switchHref = (l: string) => pathname.replace(/^\/(en|es)(?=\/|$)/, `/${l}`);
 
+  useEffect(() => setOpen(false), [pathname]);
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+    document.body.style.overflow = open ? "hidden" : "";
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    if (open) window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
 
-  const navLinks = [
-    { name: dict.navigation.services, href: `/${lang}#services` },
-    { name: dict.navigation.howItWorks, href: `/${lang}#how-it-works` },
-    { name: dict.navigation.team, href: `/${lang}#team` },
-    { name: dict.navigation.about, href: `/${lang}/about` },
-    { name: dict.navigation.blog, href: `/${lang}/blog` },
+  const links = [
+    { name: n.services, href: to(lang, "/#services") },
+    { name: n.howItWorks, href: to(lang, "/#how-it-works") },
+    { name: n.team, href: to(lang, "/#team") },
+    { name: n.about, href: to(lang, "/about") },
+    { name: n.blog, href: to(lang, "/blog") },
+    { name: n.contact, href: to(lang, "/contact") },
   ];
 
+  const Lang = () => (
+    <span className="lang">
+      <Link href={switchHref("en")} hrefLang="en" lang="en" aria-current={lang === "en"}>
+        EN
+      </Link>
+      <Link href={switchHref("es")} hrefLang="es" lang="es" aria-current={lang === "es"}>
+        ES
+      </Link>
+    </span>
+  );
+
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-sm py-3"
-          : "bg-white/80 backdrop-blur-md border-b border-gray-100 py-5"
-      }`}
-    >
-      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-        {/* Logo */}
-        <Link
-          href={`/${lang}`}
-          className="flex items-center gap-2 font-sans font-bold text-2xl text-[var(--primary)]"
-        >
-          <div className="w-8 h-8 bg-[var(--primary)] rounded-lg flex items-center justify-center text-white">
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="3"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <polyline points="20 6 9 17 4 12" />
-            </svg>
-          </div>
-          <span className="font-sans tracking-tight">MDIVAN</span>
-        </Link>
-
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((link, idx) => (
-            <Link
-              key={idx}
-              href={link.href}
-              className="text-base font-bold text-gray-600 hover:text-[var(--primary)] transition-colors"
-            >
-              {link.name}
-            </Link>
-          ))}
-        </nav>
-
-        {/* Desktop CTA & Switcher */}
-        <div className="hidden md:flex items-center gap-6">
-          <div className="flex items-center gap-2 text-sm font-medium">
-            <Link
-              href="/en"
-              className={`hover:text-[var(--primary)] transition-colors ${
-                lang === "en" ? "text-[var(--primary)]" : "text-gray-400"
-              }`}
-            >
-              EN
-            </Link>
-            <span className="text-gray-300">|</span>
-            <Link
-              href="/es"
-              className={`hover:text-[var(--primary)] transition-colors ${
-                lang === "es" ? "text-[var(--primary)]" : "text-gray-400"
-              }`}
-            >
-              ES
-            </Link>
-          </div>
-          <Link
-            href={`/${lang}#contact`}
-            className="flex items-center gap-2 bg-[var(--primary)] text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-[#15342d] transition-colors"
-          >
-            {dict.navigation.contact}
-            <div className="bg-white/20 rounded-full p-1">
-              <ArrowRight className="w-3 h-3" />
-            </div>
+    <>
+      <a href="#main" className="skip">
+        {u.skip}
+      </a>
+      <header className="site-header">
+        <div className="wrap">
+          <Link href={to(lang)} className="logo">
+            MDIVAN
           </Link>
+          <div className="header-actions">
+            <Lang />
+            <Link href={to(lang, "/hire-talent")} className="btn btn--line btn--sm">
+              {dict.contact.split.companies.cta}
+            </Link>
+            <span className="header-spacer" aria-hidden="true" />
+          </div>
         </div>
+      </header>
 
-        {/* Mobile Menu Toggle */}
-        <button
-          className="md:hidden text-[var(--primary)]"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? <X /> : <Menu />}
-        </button>
-      </div>
+      <button
+        ref={btnRef}
+        type="button"
+        className="menu-btn"
+        aria-expanded={open}
+        aria-controls="site-menu"
+        aria-label={open ? u.close : u.menu}
+        onClick={() => setOpen((o) => !o)}
+      >
+        {open ? (
+          <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M3 3l12 12M15 3L3 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>
+        ) : (
+          <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 9h14M2 13h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>
+        )}
+      </button>
 
-      {/* Mobile Nav */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-t border-gray-100 overflow-hidden"
-          >
-            <div className="flex flex-col p-4 gap-4">
-              {navLinks.map((link, idx) => (
-                <Link
-                  key={idx}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="text-left text-base font-medium text-gray-700 hover:text-[var(--primary)]"
-                >
-                  {link.name}
-                </Link>
-              ))}
-              <div className="flex items-center gap-2 text-sm font-medium py-2">
-                <Link
-                  href="/en"
-                  className={`hover:text-[var(--primary)] transition-colors ${
-                    lang === "en" ? "text-[var(--primary)]" : "text-gray-400"
-                  }`}
-                >
-                  English
-                </Link>
-                <span className="text-gray-300">|</span>
-                <Link
-                  href="/es"
-                  className={`hover:text-[var(--primary)] transition-colors ${
-                    lang === "es" ? "text-[var(--primary)]" : "text-gray-400"
-                  }`}
-                >
-                  Español
-                </Link>
-              </div>
-              <Link
-                href={`/${lang}#contact`}
-                onClick={() => setIsOpen(false)}
-                className="flex items-center justify-center gap-2 bg-[var(--primary)] text-white px-5 py-3 rounded-full text-base font-medium mt-2"
-              >
-                {dict.navigation.contact}
-                <ArrowRight className="w-4 h-4" />
+      {open && (
+        <div id="site-menu" className="menu navy glow" role="dialog" aria-modal="true" aria-label={u.menu}>
+          <div className="wrap">
+            <div className="menu__top">
+              <Link href={to(lang)} className="logo">
+                MDIVAN
               </Link>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </header>
+            <nav aria-label={u.menu}>
+              {links.map((l) => (
+                <Link key={l.href} href={l.href} onClick={() => setOpen(false)} aria-current={pathname === l.href ? "page" : undefined}>
+                  {l.name}
+                </Link>
+              ))}
+            </nav>
+            <div className="actions">
+              <Link href={to(lang, "/hire-talent")} className="btn btn--orange">
+                {dict.contact.split.companies.cta} <span className="arrow" aria-hidden="true">→</span>
+              </Link>
+              <Link href={to(lang, "/apply")} className="btn btn--line">
+                {dict.contact.split.candidates.cta}
+              </Link>
+            </div>
+            <div className="menu__foot">
+              <Lang />
+              <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+              <a href={LINKEDIN} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href={INSTAGRAM} target="_blank" rel="noopener noreferrer">Instagram</a>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
