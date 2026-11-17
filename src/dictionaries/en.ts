@@ -1,4 +1,25 @@
 export default {
+  ui: {
+    menu: "Menu",
+    close: "Close",
+    skip: "Skip to content",
+    explore: "Explore",
+    follow: "Follow",
+    write: "Write to us",
+    learnMore: "Learn more",
+    allRoles: "All roles",
+    whatTheyHandle: "What they handle",
+    otherRoles: "Other roles",
+    based: "Based in Madrid",
+    madridCaption: "Gran Vía, Madrid. Where MDIVAN is based.",
+    credits: "Photographs",
+    blogBadge: "Blog",
+    blogTitle: "Insights & Resources",
+    blogLead: "Strategies for leaders building world-class remote teams.",
+    backToBlog: "Back to the blog",
+    madridAlt: "Early-20th-century buildings along Gran Vía, Madrid, in black and white",
+    madridNightAlt: "La Adriática building on Gran Vía, Madrid, lit up at night",
+  },
   navigation: {
     services: "Services",
     features: "Features",
@@ -13,6 +34,8 @@ export default {
   },
   hero: {
     title: "Elite Executive Assistant & Business Associate Recruitment",
+    titleA: "Elite Executive Assistant &",
+    titleB: "Business Associate Recruitment",
     description:
       "Connecting Visionary Leaders with World-Class Talent. We specialize in finding the perfect Business Associates and Executive Assistants to help you scale your operations and impact.",
     cta: "Find Your Match",

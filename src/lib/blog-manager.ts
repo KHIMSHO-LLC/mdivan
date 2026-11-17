@@ -47,7 +47,6 @@ export const SEO_TOPICS = [
   "Finding the Perfect Executive Assistant in 2026",
   "How a Business Associate Can Double Your Productivity",
   "Managing Time Zones: The Secret to 24/7 Operations",
-  "Why Georgia and Spain are Top Hubs for Remote Talent",
   "Async Work: The Key to Deep Focus for Startups",
   "The Hidden Costs of Hiring Locally in NYC and SF",
   "Executive Support for Venture Capitalists",

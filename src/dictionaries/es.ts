@@ -1,4 +1,25 @@
 export default {
+  ui: {
+    menu: "Menú",
+    close: "Cerrar",
+    skip: "Saltar al contenido",
+    explore: "Explorar",
+    follow: "Síguenos",
+    write: "Escríbenos",
+    learnMore: "Saber más",
+    allRoles: "Todos los perfiles",
+    whatTheyHandle: "De qué se encargan",
+    otherRoles: "Otros perfiles",
+    based: "Con sede en Madrid",
+    madridCaption: "Gran Vía, Madrid. Donde está MDIVAN.",
+    credits: "Fotografías",
+    blogBadge: "Blog",
+    blogTitle: "Ideas y recursos",
+    blogLead: "Estrategias para líderes que construyen equipos remotos de primer nivel.",
+    backToBlog: "Volver al blog",
+    madridAlt: "Edificios de principios del siglo XX en la Gran Vía de Madrid, en blanco y negro",
+    madridNightAlt: "El edificio La Adriática en la Gran Vía de Madrid, iluminado de noche",
+  },
   navigation: {
     services: "Servicios",
     features: "Características",
@@ -14,6 +35,8 @@ export default {
   hero: {
     title:
       "Conectando Innovadores de la Industria con Profesionales de Primer Nivel",
+    titleA: "Conectando Innovadores de la Industria",
+    titleB: "con Profesionales de Primer Nivel",
     description:
       "Nos asociamos con organizaciones en crecimiento para encontrar Asistentes Ejecutivos y Socios Comerciales sobresalientes que eleven su productividad.",
     cta: "Encuentra tu Pareja",
@@ -24,29 +47,99 @@ export default {
     heading: "Talento confiable para impulsar tu negocio",
     items: {
       ea: {
+        slug: "executive-assistant",
         title: "Asistentes Ejecutivos",
         description:
           "Apoyo de alto nivel para ejecutivos C-suite, gestionando agendas, viajes y comunicaciones confidenciales con precisión.",
+        fullDescription:
+          "Nuestros Asistentes Ejecutivos son mucho más que filtros: son socios estratégicos para los líderes de la alta dirección. Gestionan tu tiempo de forma proactiva, resuelven la logística compleja y te representan en comunicaciones clave, para que puedas centrarte en las decisiones de mayor impacto.",
+        benefits: [
+          "Gestión compleja de agenda y correo",
+          "Logística de viajes internacionales e itinerarios",
+          "Enlace confidencial con miembros del consejo y VIPs",
+          "Gestión de estilo de vida personal",
+        ],
+        meta: {
+          title: "Contrata Asistentes Ejecutivos Remotos | MDIVAN",
+          description:
+            "Encuentra Asistentes Ejecutivos remotos de élite para la alta dirección. Seleccionamos al 1% del mejor talento de Europa para apoyar a líderes globales.",
+        },
       },
       ba: {
+        slug: "business-associate",
         title: "Socios Comerciales",
         description:
           "Profesionales versátiles capaces de manejar operaciones, coordinación de proyectos y relaciones con clientes para impulsar la eficiencia empresarial.",
+        fullDescription:
+          "Un Socio Comercial es un generalista versátil que une operaciones y estrategia. Ideal para startups y equipos en rápido crecimiento, se encarga de la gestión de proyectos, la incorporación de clientes, la investigación de mercado y los flujos operativos.",
+        benefits: [
+          "Gestión y coordinación de proyectos",
+          "Relación con clientes e incorporación",
+          "Investigación de mercado y análisis de datos",
+          "Optimización de procesos operativos",
+        ],
+        meta: {
+          title: "Contrata Socios Comerciales y Soporte de Operaciones | MDIVAN",
+          description:
+            "Haz crecer tu startup con Socios Comerciales de primer nivel. Talento remoto versátil para operaciones, proyectos y crecimiento.",
+        },
       },
       pa: {
+        slug: "personal-assistant",
         title: "Asistentes Personales",
         description:
           "Apoyo dedicado para la gestión diaria, asegurando vidas personales y profesionales organizadas y libres de estrés.",
+        fullDescription:
+          "Nuestros Asistentes Personales hacen que tu vida fuera del trabajo funcione tan bien como tu negocio. Desde coordinar al personal del hogar y las agendas familiares hasta organizar eventos y gestionar finanzas privadas, te devuelven tu tiempo personal.",
+        benefits: [
+          "Gestión del hogar y del patrimonio",
+          "Organización de eventos y viajes privados",
+          "Agendas y logística familiar",
+          "Administración financiera privada",
+        ],
+        meta: {
+          title: "Contrata Asistentes Personales de Élite | MDIVAN",
+          description:
+            "Asistentes Personales privados y dedicados para personas de alto patrimonio. Organiza tu vida personal con un apoyo discreto y profesional.",
+        },
       },
       om: {
+        slug: "operations-manager",
         title: "Gerentes",
         description:
           "Aseguran operaciones diarias fluidas, gestión de instalaciones y coordinación de equipos para un entorno de trabajo productivo.",
+        fullDescription:
+          "Los buenos Gerentes de Operaciones son la columna vertebral de una empresa en remoto. Crean los sistemas, las herramientas y la cultura que permiten a los equipos distribuidos prosperar, y se ocupan de todo, desde la administración de RR. HH. hasta la compra de software.",
+        benefits: [
+          "Gestión de la oficina remota y las herramientas",
+          "Administración de RR. HH. e incorporación",
+          "Documentación de procesos y procedimientos",
+          "Cultura de equipo y organización de retiros",
+        ],
+        meta: {
+          title: "Contrata Gerentes de Operaciones Remotos | MDIVAN",
+          description:
+            "Encuentra Gerentes de Operaciones con experiencia para construir y escalar tu infraestructura remota. Expertos en sistemas, RR. HH. y cultura.",
+        },
       },
       sd: {
+        slug: "software-developer",
         title: "Desarrolladores de Software",
         description:
           "Talento de ingeniería de primer nivel para construir, escalar y mantener su infraestructura técnica.",
+        fullDescription:
+          "Nuestros Desarrolladores de Software son profesionales altamente cualificados que crean soluciones de software robustas y escalables. Encontramos el mejor talento de ingeniería para acelerar tu hoja de ruta técnica y asegurar que tu producto prospere.",
+        benefits: [
+          "Desarrollo web y móvil full-stack",
+          "Arquitectura de sistemas y estrategia técnica",
+          "Integración de APIs y gestión de bases de datos",
+          "Optimización del rendimiento y corrección de errores",
+        ],
+        meta: {
+          title: "Contrata Desarrolladores de Software Remotos | MDIVAN",
+          description:
+            "Encuentra Desarrolladores de Software remotos de élite. Seleccionamos el mejor talento global para cumplir tus objetivos técnicos.",
+        },
       },
     },
   },
