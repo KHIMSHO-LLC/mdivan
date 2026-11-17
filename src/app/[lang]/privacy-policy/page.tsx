@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { getDictionary } from "../../../get-dictionary";
 import { Locale } from "../../../i18n-config";
+import { PageHead } from "@/components/PageHead";
+import { pageMeta } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -10,10 +12,7 @@ export async function generateMetadata({
   const { lang } = await params;
   const dict = await getDictionary(lang as Locale);
 
-  return {
-    title: `${dict.privacyPolicy.title} - MDIVAN`,
-    description: dict.privacyPolicy.intro[0],
-  };
+  return pageMeta({ lang, path: "/privacy-policy", title: `${dict.privacyPolicy.title} | MDIVAN`, description: dict.privacyPolicy.intro[0] });
 }
 
 export default async function PrivacyPolicy({
@@ -26,7 +25,7 @@ export default async function PrivacyPolicy({
   const { privacyPolicy } = dict;
 
   return (
-    <main className="min-h-screen pt-32 pb-24 bg-white">
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -50,12 +49,10 @@ export default async function PrivacyPolicy({
           }),
         }}
       />
-      <div className="container mx-auto px-4 md:px-6 max-w-3xl">
-        <h1 className="text-4xl md:text-5xl font-sans font-bold text-[var(--primary)] mb-8">
-          {privacyPolicy.title}
-        </h1>
-
-        <div className="prose prose-lg text-gray-600">
+      <PageHead title={privacyPolicy.title} />
+      <section className="section">
+        <div className="wrap">
+          <div className="prose-mdivan">
           {privacyPolicy.intro.map((p: string, i: number) => (
             <p key={i} className="mb-6">
               {p}
@@ -111,8 +108,9 @@ export default async function PrivacyPolicy({
             ))}
           </ul>
           <p className="mb-6">{privacyPolicy.restricting.closing}</p>
+          </div>
         </div>
-      </div>
-    </main>
+      </section>
+    </>
   );
 }

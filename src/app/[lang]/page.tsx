@@ -1,79 +1,50 @@
-import { Hero } from "@/components/Hero";
-import { ComparisonSection } from "@/components/ComparisonSection";
-import { ServicesCarousel } from "@/components/ServicesCarousel";
-import { HowItWorks } from "@/components/HowItWorks";
-import { TeamSection } from "@/components/TeamSection";
-import { FAQ } from "@/components/FAQ";
-import { ContactSplitter } from "@/components/ContactSplitter";
-import { TestimonialsSection } from "@/components/TestimonialsSection";
+import type { Metadata } from "next";
 import { getDictionary } from "../../get-dictionary";
-import { Locale } from "../../i18n-config";
+import type { Locale } from "../../i18n-config";
+import { pageMeta, JsonLd } from "@/lib/seo";
+import { Hero, Film } from "@/components/home/Hero";
+import { Services } from "@/components/home/Services";
+import { Advantage } from "@/components/home/Advantage";
+import { Steps } from "@/components/home/Steps";
+import { Quotes } from "@/components/home/Quotes";
+import { Team } from "@/components/home/Team";
+import { Faq } from "@/components/home/Faq";
+import { ContactSplit } from "@/components/ContactSplit";
 
-export default async function Home({
-  params,
-}: {
-  params: Promise<{ lang: string }>;
-}) {
+type Props = { params: Promise<{ lang: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { lang } = await params;
+  const dict = await getDictionary(lang as Locale);
+  return pageMeta({ lang, title: dict.meta.title, description: dict.meta.description });
+}
+
+export default async function Home({ params }: Props) {
   const { lang } = await params;
   const dict = await getDictionary(lang as Locale);
 
-  const faqSchema = {
+  const faq = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: dict.faq.items.map((item: any) => ({
+    mainEntity: dict.faq.items.map((it: any) => ({
       "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
+      name: it.question,
+      acceptedAnswer: { "@type": "Answer", text: it.answer },
     })),
   };
 
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    serviceType: "Recruitment",
-    provider: {
-      "@type": "RecruitmentAgency",
-      name: "MDIVAN",
-    },
-    areaServed: {
-      "@type": "Country",
-      name: "Global",
-    },
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "Recruitment Services",
-      itemListElement: Object.values(dict.services.items).map(
-        (service: any) => ({
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: service.title,
-            description: service.description,
-          },
-        })
-      ),
-    },
-  };
-
   return (
-    <main className="min-h-screen">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify([faqSchema, serviceSchema]),
-        }}
-      />
-      <Hero dict={dict} />
-      <ServicesCarousel dict={dict} />
-      <ComparisonSection dict={dict} />
-      <TestimonialsSection dict={dict} />
-      <TeamSection dict={dict} />
-      <HowItWorks dict={dict} />
-      <FAQ dict={dict} />
-      <ContactSplitter dict={dict} lang={lang} />
-    </main>
+    <>
+      <JsonLd data={faq} />
+      <Hero dict={dict} lang={lang} />
+      <Film dict={dict} />
+      <Services dict={dict} lang={lang} />
+      <Advantage dict={dict} />
+      <Steps dict={dict} />
+      <Quotes dict={dict} />
+      <Team dict={dict} />
+      <Faq dict={dict} />
+      <ContactSplit dict={dict} lang={lang} />
+    </>
   );
 }

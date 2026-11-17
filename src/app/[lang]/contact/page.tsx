@@ -1,33 +1,33 @@
-import { ContactForm } from "@/components/ContactForm";
-import { getDictionary } from "../../../get-dictionary";
-import { Locale } from "../../../i18n-config";
 import type { Metadata } from "next";
+import { getDictionary } from "@/get-dictionary";
+import type { Locale } from "@/i18n-config";
+import { pageMeta } from "@/lib/seo";
+import { EMAIL, PHONE, PHONE_HREF } from "@/lib/site";
+import { PageHead } from "@/components/PageHead";
+import { FormBody } from "@/components/ContactForm";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ lang: string }>;
-}): Promise<Metadata> {
+type Props = { params: Promise<{ lang: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params;
   const dict = await getDictionary(lang as Locale);
-
-  return {
-    title: `${dict.navigation.contact} - MDIVAN`,
-    description: dict.contact.subtitle,
-  };
+  return pageMeta({ lang, path: "/contact", title: `${dict.contact.title} | MDIVAN`, description: dict.contact.subtitle });
 }
 
-export default async function ContactPage({
-  params,
-}: {
-  params: Promise<{ lang: string }>;
-}) {
+export default async function Page({ params }: Props) {
   const { lang } = await params;
   const dict = await getDictionary(lang as Locale);
-
   return (
-    <main className="min-h-screen pt-20">
-      <ContactForm dict={dict} />
-    </main>
+    <>
+      <PageHead eyebrow={dict.contact.badge} title={dict.contact.title} lead={dict.contact.subtitle}>
+        <a href={`mailto:${EMAIL}`} className="btn btn--orange">
+          {EMAIL}
+        </a>
+        <a href={PHONE_HREF} className="btn btn--line num">
+          {PHONE}
+        </a>
+      </PageHead>
+      <FormBody dict={dict} lang={lang} />
+    </>
   );
 }
